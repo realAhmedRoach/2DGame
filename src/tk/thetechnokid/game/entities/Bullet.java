@@ -7,6 +7,8 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import tk.thetechnokid.game.control.EntityController;
+
 public class Bullet extends Entity {
 	private static BufferedImage image;
 	private static final int SPEED = 2;

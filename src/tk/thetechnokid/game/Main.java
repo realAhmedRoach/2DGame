@@ -44,7 +44,7 @@ public class Main extends JFrame implements Runnable {
 		}
 		
 		Graphics g = bs.getDrawGraphics();
-		g.setColor(Color.WHITE);
+		g.setColor(Color.CYAN);
 		g.fillRect(0, 0, getWidth(), getHeight());
 		EntityController.render(g);
 		g.dispose();
@@ -53,13 +53,14 @@ public class Main extends JFrame implements Runnable {
 
 	private void init() {
 		Player user = new Player(150, 150);
-		Enemy enemy = new Enemy(WIDTH, HEIGHT);
-		Enemy enemy2 = new Enemy(WIDTH-15, HEIGHT-15);
+		
+		for(int i = 0;i<Math.random()*6;i++) {
+			Enemy enemy = new Enemy(WIDTH, HEIGHT);
+			EntityController.addEnemy(enemy);
+		}
 		
 		EntityController.setUser(user);
-		EntityController.addEnemy(enemy);
-		EntityController.addEnemy(enemy2);
-		
+
 		addKeyListener(new InputHandler());
 	}
 
