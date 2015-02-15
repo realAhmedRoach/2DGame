@@ -8,9 +8,7 @@ import javax.swing.JFrame;
 
 import tk.thetechnokid.game.control.EntityController;
 import tk.thetechnokid.game.control.InputHandler;
-import tk.thetechnokid.game.entities.Bullet;
 import tk.thetechnokid.game.entities.Enemy;
-import tk.thetechnokid.game.entities.Entity;
 import tk.thetechnokid.game.entities.Player;
 
 public class Main extends JFrame implements Runnable {
@@ -35,6 +33,7 @@ public class Main extends JFrame implements Runnable {
 	}
 
 	public void tick() {
+		EntityController.tick();
 	}
 
 	public void render() {
@@ -47,23 +46,9 @@ public class Main extends JFrame implements Runnable {
 		Graphics g = bs.getDrawGraphics();
 		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, getWidth(), getHeight());
-		paintComponent(g);
+		EntityController.render(g);
 		g.dispose();
 		bs.show();
-	}
-
-	public void paintComponent(Graphics g) {
-		for (Entity entity : EntityController.entities) {
-			entity.move();
-			entity.render(g);
-			if (entity instanceof Player) {
-				Player p = (Player) entity;
-				for (Bullet b : p.bullets) {
-					b.move();
-					b.render(g);
-				}
-			}
-		}
 	}
 
 	private void init() {

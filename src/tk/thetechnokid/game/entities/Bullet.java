@@ -10,7 +10,7 @@ import javax.imageio.ImageIO;
 public class Bullet extends Entity {
 	private static BufferedImage image;
 	private static final int SPEED = 2;
-	private boolean drawn;
+	public boolean drawn;
 	private int xdir,ydir;
 	
 	static {
