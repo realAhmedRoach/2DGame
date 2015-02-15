@@ -10,9 +10,10 @@ import javax.imageio.ImageIO;
 public class Bullet extends Entity {
 	private static BufferedImage image;
 	private static final int SPEED = 2;
+	private Entity target;
 	public boolean drawn;
-	private int xdir,ydir;
-	
+	private int xdir, ydir;
+
 	static {
 		try {
 			image = ImageIO.read(new File("res/bullet.png"));
@@ -21,22 +22,33 @@ public class Bullet extends Entity {
 		}
 
 	}
-	
-	public Bullet(Player parent,Entity target) {
+
+	public Bullet(Entity parent, Entity target) {
 		super(parent.x, parent.y, image);
+		this.target = target;
 		xdir = 0;
 		ydir = -1;
 	}
 
 	public void render(Graphics g) {
-		if(!drawn) super.render(g);
-		if(y == 0) drawn = true;
+		if (!drawn) super.render(g);
+		if (y == 0) drawn = true;
 	}
-	
+
 	@Override
 	public void move() {
-		y+=SPEED*ydir;
-		x+=SPEED*xdir;
+		if (target.y > y) ydir = 1;
+		if (target.y < y) ydir = -1;
+		if (target.y == y) ydir = 0;
+		if (target.x > x) xdir = 1;
+		if (target.x < x) xdir = -1;
+		if (target.x == x) xdir = 0;
+		y += SPEED * ydir;
+		x += SPEED * xdir;
+		if (Math.abs(target.x - x) <= 2 && Math.abs(target.y - y) <= 2) {
+			target.destroyed = true;
+			drawn = true;
+		}
 	}
 
 }

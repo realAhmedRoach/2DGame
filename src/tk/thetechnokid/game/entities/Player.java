@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 
 import tk.thetechnokid.game.Main;
+import tk.thetechnokid.game.control.EntityController;
 import tk.thetechnokid.game.control.InputHandler;
 
 public class Player extends Entity {
@@ -55,7 +56,7 @@ public class Player extends Entity {
 				x -= SPEED;
 		if(InputHandler.isSpace()) {
 			if(shot) return;
-			Bullet b = new Bullet(this,null);
+			Bullet b = new Bullet(this,EntityController.enemies.get((int)Math.random()*EntityController.enemies.size()));
 			bullets.add(b);
 			lastShot = System.currentTimeMillis();
 			shot = true;

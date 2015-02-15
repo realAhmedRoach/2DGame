@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
@@ -13,6 +14,9 @@ public class Enemy extends Entity {
 
 	private static final int SPEED = 6;
 	private static BufferedImage enemImg;
+	public boolean destroyed;
+	
+	public ArrayList<Bullet> bullets = new ArrayList<>();
 
 	static {
 		try {
@@ -27,12 +31,13 @@ public class Enemy extends Entity {
 	}
 
 	public void render(Graphics g) {
+		if(destroyed) return;
 		super.render(g);
 	}
 
 	@Override
 	public void move() {
-		int rand = (int) (Math.random() * 5);
+		int rand = (int) (Math.random() * 6);
 		if (rand <= 2)
 			return;
 		if (EntityController.user.x > x) 
@@ -43,6 +48,10 @@ public class Enemy extends Entity {
 			y += SPEED;
 		if (EntityController.user.y < y) 
 			y -= SPEED;
+		
+		if(rand <= 2)
+			bullets.add(new Bullet(this,EntityController.user));
+		
 		if(Math.abs(EntityController.user.x-x)==5) x = EntityController.user.x;
 		if(Math.abs(EntityController.user.y-y)==5) y = EntityController.user.y;
 	}

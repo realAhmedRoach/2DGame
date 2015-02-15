@@ -10,19 +10,20 @@ import tk.thetechnokid.game.entities.Player;
 
 public class EntityController {
 	public static ArrayList<Entity> entities;
+	public static ArrayList<Enemy> enemies;
 	
 	public static Player user;
-	public static Enemy enemy;
 	static {
 		entities = new ArrayList<>();
+		enemies = new ArrayList<>();
 	}
 	public static void setUser(Player u) {
 		user = u;
 		addEntity(user);
 	}
 	
-	public static void setEnemy(Enemy m) {
-		enemy = m;
+	public static void addEnemy(Enemy enemy) {
+		enemies.add(enemy);
 		addEntity(enemy);
 	}
 	
@@ -33,6 +34,9 @@ public class EntityController {
 	public static void tick() {
 		for(Bullet b : user.bullets) {
 			if(b.drawn) b = null;
+		}
+		for (int i = 0; i < enemies.size(); i++) {
+			if(enemies.get(i).destroyed) enemies.remove(i);
 		}
 	}
 	

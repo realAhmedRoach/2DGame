@@ -54,9 +54,11 @@ public class Main extends JFrame implements Runnable {
 	private void init() {
 		Player user = new Player(150, 150);
 		Enemy enemy = new Enemy(WIDTH, HEIGHT);
+		Enemy enemy2 = new Enemy(WIDTH-15, HEIGHT-15);
 		
 		EntityController.setUser(user);
-		EntityController.setEnemy(enemy);
+		EntityController.addEnemy(enemy);
+		EntityController.addEnemy(enemy2);
 		
 		addKeyListener(new InputHandler());
 	}

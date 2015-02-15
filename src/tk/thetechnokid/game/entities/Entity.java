@@ -6,6 +6,7 @@ public abstract class Entity {
 	public int x;
 	public int y;
 	private BufferedImage image;
+	public boolean destroyed;
 	
 	public Entity(int x, int y, BufferedImage image) {
 		this.x = x;
@@ -18,6 +19,6 @@ public abstract class Entity {
 	}
 	
 	public void render(Graphics g) {
-		g.drawImage(getImage(), x, y, getImage().getWidth(), getImage().getHeight(), null);
+		if(!destroyed) g.drawImage(getImage(), x, y, getImage().getWidth(), getImage().getHeight(), null);
 	}
 }
