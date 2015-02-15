@@ -16,7 +16,7 @@ public class Game extends JFrame implements Runnable {
 
 	private static final String TITLE = "Game";
 	public static final int WIDTH = 800;
-	public static final int HEIGHT = 600;
+	public static final int HEIGHT = 700;
 	
 	private boolean running;
 	private Thread thread;
@@ -52,7 +52,7 @@ public class Game extends JFrame implements Runnable {
 	}
 
 	private void init() {
-		Player user = new Player(150, 150);
+		Player user = new Player();
 		
 		for(int i = 0;i<Math.random()*6;i++) {
 			Enemy enemy = new Enemy(WIDTH, HEIGHT);

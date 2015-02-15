@@ -7,8 +7,6 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import tk.thetechnokid.game.control.EntityController;
-
 public class Bullet extends Entity {
 	private static BufferedImage image;
 	private static final int SPEED = 2;
@@ -28,8 +26,7 @@ public class Bullet extends Entity {
 	public Bullet(Entity parent, Entity target) {
 		super(parent.x, parent.y, image);
 		this.target = target;
-		xdir = 0;
-		ydir = -1;
+		if(target.x == x && target.y == y) drawn  = true;
 	}
 
 	public void render(Graphics g) {

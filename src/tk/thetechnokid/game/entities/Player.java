@@ -30,8 +30,8 @@ public class Player extends Entity {
 		}
 	}
 
-	public Player(int x, int y) {
-		super(x, y, image);
+	public Player() {
+		super(100, 100, image);
 	}
 
 	@Override
