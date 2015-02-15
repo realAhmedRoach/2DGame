@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
-import tk.thetechnokid.game.Main;
+import tk.thetechnokid.game.Game;
 import tk.thetechnokid.game.control.EntityController;
 import tk.thetechnokid.game.control.InputHandler;
 
@@ -39,11 +39,11 @@ public class Player extends Entity {
 		if (InputHandler.isUp()) if (y <= 25) y = 25;
 		else y -= SPEED;
 		if (InputHandler.isDown())
-			if (y >= Main.HEIGHT - getImage().getHeight()) y = Main.HEIGHT
+			if (y >= Game.HEIGHT - getImage().getHeight()) y = Game.HEIGHT
 					- getImage().getHeight();
 			else y += SPEED;
 		if (InputHandler.isRight())
-			if (x >= Main.WIDTH - getImage().getWidth()) x = Main.WIDTH
+			if (x >= Game.WIDTH - getImage().getWidth()) x = Game.WIDTH
 					- getImage().getWidth();
 			else x += SPEED;
 		if (InputHandler.isLeft()) if (x <= 5) x = 5;

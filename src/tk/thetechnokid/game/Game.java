@@ -11,7 +11,7 @@ import tk.thetechnokid.game.control.InputHandler;
 import tk.thetechnokid.game.entities.Enemy;
 import tk.thetechnokid.game.entities.Player;
 
-public class Main extends JFrame implements Runnable {
+public class Game extends JFrame implements Runnable {
 	private static final long serialVersionUID = 6639258471146102807L;
 
 	private static final String TITLE = "Game";
@@ -21,7 +21,7 @@ public class Main extends JFrame implements Runnable {
 	private boolean running;
 	private Thread thread;
 
-	public Main() {
+	public Game() {
 		init();
 		setResizable(false);
 		setTitle(TITLE);
@@ -88,7 +88,7 @@ public class Main extends JFrame implements Runnable {
 	}
 
 	public static void main(String[] args) {
-		new Main().start();
+		new Game().start();
 	}
 
 }
