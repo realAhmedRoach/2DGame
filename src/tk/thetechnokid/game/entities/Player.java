@@ -21,6 +21,7 @@ public class Player extends Entity {
 	int enemyLoc = 0;
 
 	private long lastShot;
+	private boolean stopped;
 
 	static {
 		try {
@@ -36,10 +37,19 @@ public class Player extends Entity {
 
 	@Override
 	public void move() {
-		checkInputs();
+		if (!stopped) checkInputs();
+		checkWalls();
 		checkShots();
 	}
-	
+
+	private void checkWalls() {
+		for (Wall w : EntityController.walls) {
+			if (bounds().intersects(w.bounds())) {
+				stopped = true;
+			}// else stopped = false;
+		}
+	}
+
 	private void checkShots() {
 		if (InputHandler.isSpace()) {
 			if (shot) return;
@@ -55,7 +65,7 @@ public class Player extends Entity {
 		if ((System.currentTimeMillis() - lastShot) > 500) shot = false;
 
 	}
-	
+
 	private void checkInputs() {
 		if (InputHandler.isUp()) if (y <= 25) y = 25;
 		else y -= SPEED;

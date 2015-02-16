@@ -1,5 +1,6 @@
 package tk.thetechnokid.game.entities;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 public abstract class Entity {
@@ -20,5 +21,10 @@ public abstract class Entity {
 	
 	public void render(Graphics g) {
 		if(!destroyed) g.drawImage(getImage(), x, y, getImage().getWidth(), getImage().getHeight(), null);
+	}
+	
+	public Rectangle bounds() {
+		Rectangle r = new Rectangle(x,y,image.getWidth(),image.getHeight());
+		return r;
 	}
 }
