@@ -4,7 +4,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class InputHandler extends KeyAdapter {
-	private boolean[] keys = new boolean[120];
+	private boolean[] keys = new boolean[130];
 	private static boolean up;
 	private static boolean down;
 	private static boolean right;
