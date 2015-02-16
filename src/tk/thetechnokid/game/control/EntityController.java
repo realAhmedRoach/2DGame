@@ -7,15 +7,18 @@ import tk.thetechnokid.game.entities.Bullet;
 import tk.thetechnokid.game.entities.Enemy;
 import tk.thetechnokid.game.entities.Entity;
 import tk.thetechnokid.game.entities.Player;
+import tk.thetechnokid.game.entities.Wall;
 
 public class EntityController {
 	public static ArrayList<Entity> entities;
 	public static ArrayList<Enemy> enemies;
+	public static ArrayList<Wall> walls;
 
 	public static Player user;
 	static {
 		entities = new ArrayList<>();
 		enemies = new ArrayList<>();
+		walls = new ArrayList<>();
 	}
 
 	public static void setUser(Player u) {
