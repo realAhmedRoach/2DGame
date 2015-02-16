@@ -31,7 +31,6 @@ public class Enemy extends Entity {
 	}
 
 	public void render(Graphics g) {
-		if(destroyed) return;
 		super.render(g);
 	}
 
@@ -49,10 +48,10 @@ public class Enemy extends Entity {
 		if (EntityController.user.y < y) 
 			y -= SPEED;
 		
-		if(rand <= 3)
+		if(rand <= 2)
 			bullets.add(new Bullet(this,EntityController.user));
 		
-		if(Math.abs(EntityController.user.x-x)<=6) x = EntityController.user.x;
-		if(Math.abs(EntityController.user.y-y)<=6) y = EntityController.user.y;
+		if(Math.abs(EntityController.user.x-x)==5) x = EntityController.user.x;
+		if(Math.abs(EntityController.user.y-y)==5) y = EntityController.user.y;
 	}
 }
