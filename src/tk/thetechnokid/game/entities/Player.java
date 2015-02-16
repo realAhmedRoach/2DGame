@@ -21,8 +21,7 @@ public class Player extends Entity {
 	int enemyLoc = 0;
 
 	private long lastShot;
-	private boolean stopped;
-
+	
 	static {
 		try {
 			image = ImageIO.read(new File("res/image.png"));
@@ -37,17 +36,8 @@ public class Player extends Entity {
 
 	@Override
 	public void move() {
-		if (!stopped) checkInputs();
-		checkWalls();
+		checkInputs();
 		checkShots();
-	}
-
-	private void checkWalls() {
-		for (Wall w : EntityController.walls) {
-			if (bounds().intersects(w.bounds())) {
-				stopped = true;
-			}// else stopped = false;
-		}
 	}
 
 	private void checkShots() {
