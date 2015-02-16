@@ -36,18 +36,11 @@ public class Player extends Entity {
 
 	@Override
 	public void move() {
-		if (InputHandler.isUp()) if (y <= 25) y = 25;
-		else y -= SPEED;
-		if (InputHandler.isDown())
-			if (y >= Game.HEIGHT - getImage().getHeight()) y = Game.HEIGHT
-					- getImage().getHeight();
-			else y += SPEED;
-		if (InputHandler.isRight())
-			if (x >= Game.WIDTH - getImage().getWidth()) x = Game.WIDTH
-					- getImage().getWidth();
-			else x += SPEED;
-		if (InputHandler.isLeft()) if (x <= 5) x = 5;
-		else x -= SPEED;
+		checkInputs();
+		checkShots();
+	}
+	
+	private void checkShots() {
 		if (InputHandler.isSpace()) {
 			if (shot) return;
 			try {
@@ -60,6 +53,22 @@ public class Player extends Entity {
 			shot = true;
 		}
 		if ((System.currentTimeMillis() - lastShot) > 500) shot = false;
+
+	}
+	
+	private void checkInputs() {
+		if (InputHandler.isUp()) if (y <= 25) y = 25;
+		else y -= SPEED;
+		if (InputHandler.isDown())
+			if (y >= Game.HEIGHT - getImage().getHeight()) y = Game.HEIGHT
+					- getImage().getHeight();
+			else y += SPEED;
+		if (InputHandler.isRight())
+			if (x >= Game.WIDTH - getImage().getWidth()) x = Game.WIDTH
+					- getImage().getWidth();
+			else x += SPEED;
+		if (InputHandler.isLeft()) if (x <= 5) x = 5;
+		else x -= SPEED;
 	}
 
 }
