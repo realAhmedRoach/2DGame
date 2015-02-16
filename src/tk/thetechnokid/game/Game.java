@@ -8,9 +8,8 @@ import javax.swing.JFrame;
 
 import tk.thetechnokid.game.control.EntityController;
 import tk.thetechnokid.game.control.InputHandler;
-import tk.thetechnokid.game.entities.Enemy;
+import tk.thetechnokid.game.control.LevelGenerator;
 import tk.thetechnokid.game.entities.Player;
-import tk.thetechnokid.game.entities.Wall;
 
 public class Game extends JFrame implements Runnable {
 	private static final long serialVersionUID = 6639258471146102807L;
@@ -54,19 +53,10 @@ public class Game extends JFrame implements Runnable {
 
 	private void init() {
 		Player user = new Player();
-		
-		for(int i = 0;i<Math.random()*6;i++) {
-			Enemy enemy = new Enemy(WIDTH, HEIGHT);
-			EntityController.addEnemy(enemy);
-		}
-		
-		Wall w = new Wall(150,150);
-		Wall w2 = new Wall(150,55);
-		EntityController.addEntity(w);
-		EntityController.addEntity(w2);
-		
 		EntityController.setUser(user);
-
+		
+		LevelGenerator.generateRandomLevel();
+		
 		addKeyListener(new InputHandler());
 	}
 

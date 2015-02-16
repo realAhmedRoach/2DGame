@@ -31,6 +31,11 @@ public class EntityController {
 		addEntity(enemy);
 	}
 
+	public static void addWall(Wall w) {
+		walls.add(w);
+		addEntity(w);
+	}
+	
 	public static void addEntity(Entity e) {
 		entities.add(e);
 	}
