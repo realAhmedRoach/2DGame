@@ -12,7 +12,7 @@ import tk.thetechnokid.game.control.EntityController;
 import tk.thetechnokid.game.control.InputHandler;
 import tk.thetechnokid.game.control.LevelGenerator;
 
-public class Player extends Entity {
+public class Player extends Creature {
 
 	private static final int SPEED = 5;
 	private static BufferedImage image;
@@ -22,7 +22,7 @@ public class Player extends Entity {
 	int enemyLoc = 0;
 
 	private long lastShot;
-	
+
 	static {
 		try {
 			image = ImageIO.read(new File("res/image.png"));
@@ -39,11 +39,13 @@ public class Player extends Entity {
 	public void move() {
 		checkInputs();
 		checkShots();
+		super.move();
 	}
 
 	private void checkShots() {
 		if (InputHandler.isSpace()) {
-			if (shot) return;
+			if (shot)
+				return;
 			try {
 				Bullet b = new Bullet(this,
 						EntityController.enemies.get(enemyLoc++));
@@ -54,23 +56,34 @@ public class Player extends Entity {
 			lastShot = System.currentTimeMillis();
 			shot = true;
 		}
-		if ((System.currentTimeMillis() - lastShot) > 500) shot = false;
-
+		if ((System.currentTimeMillis() - lastShot) > 500)
+			shot = false;
 	}
 
 	private void checkInputs() {
-		if (InputHandler.isUp()) if (y <= 25) y = 25;
-		else y -= SPEED;
+		xMove = 0;
+		yMove = 0;
+		
+		if (InputHandler.isUp())
+			if (y <= 25)
+				y = 25;
+			else
+				yMove = -SPEED;
 		if (InputHandler.isDown())
-			if (y >= Game.HEIGHT - getImage().getHeight()) y = Game.HEIGHT
-					- getImage().getHeight();
-			else y += SPEED;
+			if (y >= Game.HEIGHT - getImage().getHeight())
+				y = Game.HEIGHT - getImage().getHeight();
+			else
+				yMove = SPEED;
 		if (InputHandler.isRight())
-			if (x >= Game.WIDTH - getImage().getWidth()) x = Game.WIDTH
-					- getImage().getWidth();
-			else x += SPEED;
-		if (InputHandler.isLeft()) if (x <= 5) x = 5;
-		else x -= SPEED;
+			if (x >= Game.WIDTH - getImage().getWidth())
+				x = Game.WIDTH - getImage().getWidth();
+			else
+				xMove = SPEED;
+		if (InputHandler.isLeft())
+			if (x <= 5)
+				x = 5;
+			else
+				xMove = -SPEED;
 	}
 
 }
