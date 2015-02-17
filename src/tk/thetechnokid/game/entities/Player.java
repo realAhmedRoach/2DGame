@@ -10,6 +10,7 @@ import javax.imageio.ImageIO;
 import tk.thetechnokid.game.Game;
 import tk.thetechnokid.game.control.EntityController;
 import tk.thetechnokid.game.control.InputHandler;
+import tk.thetechnokid.game.control.LevelGenerator;
 
 public class Player extends Entity {
 
@@ -48,6 +49,7 @@ public class Player extends Entity {
 						EntityController.enemies.get(enemyLoc++));
 				bullets.add(b);
 			} catch (IndexOutOfBoundsException e) {
+				LevelGenerator.generateRandomLevel();
 			}
 			lastShot = System.currentTimeMillis();
 			shot = true;

@@ -17,15 +17,15 @@ public class Game extends JFrame implements Runnable {
 	private static final String TITLE = "Game";
 	public static final int WIDTH = 800;
 	public static final int HEIGHT = 700;
-	
+
 	private boolean running;
 	private Thread thread;
 
 	public Game() {
-		init();
 		setResizable(false);
 		setTitle(TITLE);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		addKeyListener(new InputHandler());
 		setSize(WIDTH, HEIGHT);
 		setVisible(true);
 		requestFocus();
@@ -42,7 +42,7 @@ public class Game extends JFrame implements Runnable {
 			createBufferStrategy(3);
 			return;
 		}
-		
+
 		Graphics g = bs.getDrawGraphics();
 		g.setColor(Color.CYAN);
 		g.fillRect(0, 0, getWidth(), getHeight());
@@ -52,12 +52,9 @@ public class Game extends JFrame implements Runnable {
 	}
 
 	private void init() {
+		LevelGenerator.generateRandomLevel();
 		Player user = new Player();
 		EntityController.setUser(user);
-		
-		LevelGenerator.generateRandomLevel();
-		
-		addKeyListener(new InputHandler());
 	}
 
 	public synchronized void start() {
@@ -77,21 +74,22 @@ public class Game extends JFrame implements Runnable {
 
 	@Override
 	public void run() {
-        	long lastTime = System.nanoTime();
-        	final double ns = 1000000000.0 / 60.0;
-        	double delta = 0;
+		long lastTime = System.nanoTime();
+		final double ns = 1000000000.0 / 60.0;
+		double delta = 0;
+		init();
 		while (running) {
-            		long now = System.nanoTime();
-            		delta += (now-lastTime) / ns;
-            		lastTime = now;
-            		while(delta >= 1) {
-                		tick();
-                		delta--;
-            		}    
+			long now = System.nanoTime();
+			delta += (now - lastTime) / ns;
+			lastTime = now;
+			while (delta >= 1) {
+				tick();
+				delta--;
+			}
 			render();
 		}
 		stop();
-	}	
+	}
 
 	public static void main(String[] args) {
 		new Game().start();
