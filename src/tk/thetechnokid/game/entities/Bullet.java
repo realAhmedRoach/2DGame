@@ -10,7 +10,7 @@ import javax.imageio.ImageIO;
 public class Bullet extends Entity {
 	private static BufferedImage image;
 	private static final int SPEED = 3;
-	private Entity target;
+	private Creature target; // be french fries
 	public boolean drawn;
 	private int xdir, ydir;
 
@@ -23,7 +23,7 @@ public class Bullet extends Entity {
 
 	}
 
-	public Bullet(Entity parent, Entity target) {
+	public Bullet(Creature parent, Creature target) {
 		super(parent.x, parent.y, image);
 		this.target = target;
 		if(target.x == x && target.y == y) drawn  = true;
@@ -45,7 +45,7 @@ public class Bullet extends Entity {
 		y += SPEED * ydir;
 		x += SPEED * xdir;
 		if (Math.abs(target.x - x) <= 2 && Math.abs(target.y - y) <= 2) {
-			target.destroyed = true;
+			target.wound();
 			drawn = true;
 		}
 	}

@@ -10,7 +10,7 @@ import javax.imageio.ImageIO;
 
 import tk.thetechnokid.game.control.EntityController;
 
-public class Enemy extends Entity {
+public class Enemy extends Creature {
 
 	private static final int SPEED = 6;
 	private static BufferedImage enemImg;
@@ -36,6 +36,17 @@ public class Enemy extends Entity {
 
 	@Override
 	public void move() {
+		checkPos();
+		
+		if(Math.abs(EntityController.user.x-x)==5) x = EntityController.user.x;
+		if(Math.abs(EntityController.user.y-y)==5) y = EntityController.user.y;
+		if(x == EntityController.user.x&&y == EntityController.user.y)
+			EntityController.user.wound();
+		
+		super.move();
+	}
+	
+	public void checkPos() {
 		int rand = (int) (Math.random() * 6);
 		if (rand <= 2)
 			return;
@@ -50,8 +61,5 @@ public class Enemy extends Entity {
 		
 		if(rand <= 2)
 			bullets.add(new Bullet(this,EntityController.user));
-		
-		if(Math.abs(EntityController.user.x-x)==5) x = EntityController.user.x;
-		if(Math.abs(EntityController.user.y-y)==5) y = EntityController.user.y;
 	}
 }

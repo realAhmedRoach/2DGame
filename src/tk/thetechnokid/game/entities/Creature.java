@@ -18,6 +18,10 @@ public abstract class Creature extends Entity {
 		if(health == 0) destroyed = true;
 	}
 	
+	public void wound() {
+		health--;
+	}
+	
 	@Override
 	public void move() {
 		checkHealth();

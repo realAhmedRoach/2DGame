@@ -8,11 +8,15 @@ public abstract class Entity {
 	public int y;
 	private BufferedImage image;
 	public boolean destroyed;
+	protected int width;
+	protected int height;
 	
 	public Entity(int x, int y, BufferedImage image) {
 		this.x = x;
 		this.y = y;
 		this.image = image;
+		width = this.image.getWidth();
+		height = this.image.getHeight();
 	}
 	public abstract void move();
 	public BufferedImage getImage() {
@@ -24,7 +28,7 @@ public abstract class Entity {
 	}
 	
 	public Rectangle bounds() {
-		Rectangle r = new Rectangle(x,y,image.getWidth(),image.getHeight());
+		Rectangle r = new Rectangle(x,y,width,height);
 		return r;
 	}
 }

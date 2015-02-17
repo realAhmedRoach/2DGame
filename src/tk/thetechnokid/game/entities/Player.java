@@ -10,7 +10,6 @@ import javax.imageio.ImageIO;
 import tk.thetechnokid.game.Game;
 import tk.thetechnokid.game.control.EntityController;
 import tk.thetechnokid.game.control.InputHandler;
-import tk.thetechnokid.game.control.LevelGenerator;
 
 public class Player extends Creature {
 
@@ -33,6 +32,7 @@ public class Player extends Creature {
 
 	public Player() {
 		super(100, 100, image);
+		health = 20;
 	}
 
 	@Override
@@ -51,7 +51,6 @@ public class Player extends Creature {
 						EntityController.enemies.get(enemyLoc++));
 				bullets.add(b);
 			} catch (IndexOutOfBoundsException e) {
-				LevelGenerator.generateRandomLevel();
 			}
 			lastShot = System.currentTimeMillis();
 			shot = true;
