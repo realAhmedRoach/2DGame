@@ -31,7 +31,7 @@ public class Player extends Creature {
 	}
 
 	public Player() {
-		super((int)Math.random()*101, (int)Math.random()*101, image);
+		super((int)(Math.random()*101), (int)(Math.random()*101), image);
 		health = 20;
 	}
 
