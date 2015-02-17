@@ -1,5 +1,8 @@
 package tk.thetechnokid.game.control;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -32,6 +35,39 @@ public class LevelGenerator {
 			Enemy enemy2 = new Enemy(x,y+100);
 			enemies.add(enemy);
 			enemies.add(enemy2);
+		}
+		
+		EntityController.enemies.addAll(enemies);
+		EntityController.walls.addAll(walls);
+		EntityController.entities.addAll(enemies);
+		EntityController.entities.addAll(walls);
+	}
+
+	public static void generateFromFile(String path) {
+		EntityController.entities.clear();
+		EntityController.enemies.clear();
+		EntityController.walls.clear();
+
+		ArrayList<Wall> walls = new ArrayList<>();
+		ArrayList<Enemy> enemies = new ArrayList<>();
+		
+		try {
+			BufferedReader r = new BufferedReader(new FileReader(new File(path)));
+			String line;
+			while((line = r.readLine())!= null) {
+				String[] curr = line.split(" ");
+				if (curr[0] == "e") {
+					Enemy e = new Enemy(Integer.parseInt(curr[1]),Integer.parseInt(curr[2]));
+					enemies.add(e);
+				} else if(curr[0] == "w") {
+					Wall w = new Wall(Integer.parseInt(curr[1]),Integer.parseInt(curr[2]));
+					walls.add(w);
+				}
+			}
+			r.close();
+		} catch(Exception e) {
+			generateRandomLevel();
+			e.printStackTrace();
 		}
 		
 		EntityController.enemies.addAll(enemies);
