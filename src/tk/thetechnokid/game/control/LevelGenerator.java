@@ -9,6 +9,10 @@ import tk.thetechnokid.game.entities.Wall;
 
 public class LevelGenerator {
 	public static void generateRandomLevel() {
+		EntityController.entities.clear();
+		EntityController.enemies.clear();
+		EntityController.walls.clear();
+		
 		int rand = (int) (Math.random()*6);
 		ArrayList<Wall> walls = new ArrayList<>();
 		ArrayList<Enemy> enemies = new ArrayList<>();
