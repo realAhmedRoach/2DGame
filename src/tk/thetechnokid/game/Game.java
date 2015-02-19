@@ -45,14 +45,14 @@ public class Game extends JFrame implements Runnable {
 
 		Graphics g = bs.getDrawGraphics();
 		g.setColor(Color.CYAN);
-		g.fillRect(0, 0, getWidth(), getHeight());
+		g.clearRect(0, 0, getWidth(), getHeight());
 		EntityController.render(g);
 		g.dispose();
 		bs.show();
 	}
 
 	private void init() {
-		LevelGenerator.generateRandomLevel();
+		LevelGenerator.generateFromFile("res/level1.txt");
 		Player user = new Player();
 		EntityController.setUser(user);
 	}

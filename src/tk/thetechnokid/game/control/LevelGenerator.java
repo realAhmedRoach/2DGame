@@ -56,10 +56,10 @@ public class LevelGenerator {
 			String line;
 			while((line = r.readLine())!= null) {
 				String[] curr = line.split(" ");
-				if (curr[0] == "e") {
+				if (curr[0].equals("e")) {
 					Enemy e = new Enemy(Integer.parseInt(curr[1]),Integer.parseInt(curr[2]));
 					enemies.add(e);
-				} else if(curr[0] == "w") {
+				} else if(curr[0].equals("w")) {
 					Wall w = new Wall(Integer.parseInt(curr[1]),Integer.parseInt(curr[2]));
 					walls.add(w);
 				}
