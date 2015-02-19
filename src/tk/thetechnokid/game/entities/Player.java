@@ -31,7 +31,7 @@ public class Player extends Creature {
 	}
 
 	public Player() {
-		super((int)(Math.random()*101), (int)(Math.random()*101), image);
+		super((int) (Math.random() * 101), (int) (Math.random() * 101), image);
 		health = 20;
 	}
 
@@ -62,27 +62,28 @@ public class Player extends Creature {
 	private void checkInputs() {
 		xMove = 0;
 		yMove = 0;
-		
-		if (InputHandler.isUp())
+
+		if (InputHandler.isUp()) {
 			if (y <= 25)
 				y = 25;
 			else
 				yMove = -SPEED;
-		if (InputHandler.isDown())
+		} if (InputHandler.isDown()) {
 			if (y >= Game.HEIGHT - getImage().getHeight())
 				y = Game.HEIGHT - getImage().getHeight();
 			else
 				yMove = SPEED;
-		if (InputHandler.isRight())
+		} if (InputHandler.isRight()) {
 			if (x >= Game.WIDTH - getImage().getWidth())
 				x = Game.WIDTH - getImage().getWidth();
 			else
 				xMove = SPEED;
-		if (InputHandler.isLeft())
+		} if (InputHandler.isLeft()) {
 			if (x <= 5)
 				x = 5;
 			else
 				xMove = -SPEED;
+		}
 	}
 
 }
