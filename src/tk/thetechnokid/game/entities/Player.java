@@ -24,7 +24,7 @@ public class Player extends Creature {
 
 	static {
 		try {
-			image = ImageIO.read(new File("res/image.png"));
+			image = ImageIO.read(new File("res/player_front.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
