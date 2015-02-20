@@ -2,13 +2,10 @@ package tk.thetechnokid.game.entities;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
-import javax.imageio.ImageIO;
-
 import tk.thetechnokid.game.control.EntityController;
+import tk.thetechnokid.game.gfx.Tile;
 
 public class Enemy extends Creature {
 
@@ -19,11 +16,7 @@ public class Enemy extends Creature {
 	public ArrayList<Bullet> bullets = new ArrayList<>();
 
 	static {
-		try {
-			enemImg = ImageIO.read(new File("res/enemy.png"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		enemImg = Tile.s.crop(1, 1, 32, 32);
 	}
 
 	public Enemy(int x, int y) {

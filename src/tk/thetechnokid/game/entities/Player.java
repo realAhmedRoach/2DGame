@@ -1,15 +1,12 @@
 package tk.thetechnokid.game.entities;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
-
-import javax.imageio.ImageIO;
 
 import tk.thetechnokid.game.Game;
 import tk.thetechnokid.game.control.EntityController;
 import tk.thetechnokid.game.control.InputHandler;
+import tk.thetechnokid.game.gfx.Tile;
 
 public class Player extends Creature {
 
@@ -23,24 +20,12 @@ public class Player extends Creature {
 	private long lastShot;
 
 	static {
-		try {
-			image = ImageIO.read(new File("res/player/player_front.png"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		image = Tile.s.crop(0, 1, 32, 32);
 	}
 
 	public Player() {
 		super((int) (Math.random() * 101), (int) (Math.random() * 101), image);
 		health = 20;
-	}
-
-	private void setImage(String pos) {
-		try {
-			image = ImageIO.read(new File("res/player/player_"+pos+".png"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 	}
 	
 	@Override
@@ -77,7 +62,6 @@ public class Player extends Creature {
 			else
 				yMove = -SPEED;
 		} if (InputHandler.isDown()) {
-			setImage("back");
 			if (y >= Game.HEIGHT - getImage().getHeight())
 				y = Game.HEIGHT - getImage().getHeight();
 			else

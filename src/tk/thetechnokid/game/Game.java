@@ -50,7 +50,7 @@ public class Game extends JFrame implements Runnable {
 	}
 
 	private void init() {
-		LevelGenerator.generateFromFile("res/level1.txt");
+		LevelGenerator.generateRandomLevel();
 		Player user = new Player();
 		EntityController.setUser(user);
 	}
