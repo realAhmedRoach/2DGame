@@ -24,7 +24,7 @@ public class Player extends Creature {
 
 	static {
 		try {
-			image = ImageIO.read(new File("res/player_front.png"));
+			image = ImageIO.read(new File("res/player/player_front.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -35,6 +35,14 @@ public class Player extends Creature {
 		health = 20;
 	}
 
+	private void setImage(String pos) {
+		try {
+			image = ImageIO.read(new File("res/player/player_"+pos+".png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	@Override
 	public void move() {
 		checkInputs();
@@ -69,6 +77,7 @@ public class Player extends Creature {
 			else
 				yMove = -SPEED;
 		} if (InputHandler.isDown()) {
+			setImage("back");
 			if (y >= Game.HEIGHT - getImage().getHeight())
 				y = Game.HEIGHT - getImage().getHeight();
 			else
@@ -84,6 +93,10 @@ public class Player extends Creature {
 			else
 				xMove = -SPEED;
 		}
+	}
+	
+	public void removeBullet(Bullet crap) {
+		bullets.remove(crap);
 	}
 
 }

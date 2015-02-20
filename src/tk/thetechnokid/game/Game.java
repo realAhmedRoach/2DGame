@@ -44,7 +44,6 @@ public class Game extends JFrame implements Runnable {
 		}
 
 		Graphics g = bs.getDrawGraphics();
-		g.setColor(Color.CYAN);
 		g.clearRect(0, 0, getWidth(), getHeight());
 		EntityController.render(g);
 		g.dispose();

@@ -11,6 +11,7 @@ public class Bullet extends Entity {
 	private static BufferedImage image;
 	private static final int SPEED = 3;
 	private Creature target; // be french fries
+	private Creature parent;
 	public boolean drawn;
 	private int xdir, ydir;
 
@@ -25,6 +26,7 @@ public class Bullet extends Entity {
 
 	public Bullet(Creature parent, Creature target) {
 		super(parent.x, parent.y, image);
+		this.parent = parent;
 		this.target = target;
 		if(target.x == x && target.y == y) drawn  = true;
 	}
@@ -36,6 +38,10 @@ public class Bullet extends Entity {
 
 	@Override
 	public void move() {
+		if(drawn&&parent instanceof Player) {
+			Player newParent = (Player) parent;
+			newParent.removeBullet(this);
+		}
 		if (target.y > y) ydir = 1;
 		if (target.y < y) ydir = -1;
 		if (target.y == y) ydir = 0;
