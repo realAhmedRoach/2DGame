@@ -9,6 +9,7 @@ import tk.thetechnokid.game.control.EntityController;
 import tk.thetechnokid.game.control.InputHandler;
 import tk.thetechnokid.game.control.LevelGenerator;
 import tk.thetechnokid.game.entities.Player;
+import tk.thetechnokid.game.gfx.Map;
 
 public class Game extends JFrame implements Runnable {
 	private static final long serialVersionUID = 6639258471146102807L;
@@ -44,12 +45,14 @@ public class Game extends JFrame implements Runnable {
 
 		Graphics g = bs.getDrawGraphics();
 		g.clearRect(0, 0, getWidth(), getHeight());
+		Map.render(g);
 		EntityController.render(g);
 		g.dispose();
 		bs.show();
 	}
 
 	private void init() {
+		Map.generateTiles();
 		LevelGenerator.generateRandomLevel();
 		Player user = new Player();
 		EntityController.setUser(user);

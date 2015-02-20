@@ -9,7 +9,6 @@ import java.util.Random;
 import tk.thetechnokid.game.Game;
 import tk.thetechnokid.game.entities.Enemy;
 import tk.thetechnokid.game.entities.Wall;
-import tk.thetechnokid.game.gfx.Tile;
 
 public class LevelGenerator {
 	public static void generateRandomLevel() {
@@ -42,7 +41,6 @@ public class LevelGenerator {
 		EntityController.walls.addAll(walls);
 		EntityController.entities.addAll(enemies);
 		EntityController.entities.addAll(walls);
-		EntityController.entities.add(Tile.WATER2);
 	}
 
 	public static void generateFromFile(String path) {
