@@ -72,8 +72,8 @@ public class Player extends Creature {
 			else
 				xMove = SPEED;
 		} if (InputHandler.isLeft()) {
-			if (x <= 5)
-				x = 5;
+			if (x <= 2)
+				x = 2;
 			else
 				xMove = -SPEED;
 		}
