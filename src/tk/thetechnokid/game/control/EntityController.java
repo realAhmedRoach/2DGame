@@ -50,11 +50,11 @@ public class EntityController {
 
 	public static void tick() {
 		for (Bullet b : user.bullets) {
-			if (b.destroyed) user.removeBullet(b);;
+			if (b.destroyed) user.removeBullet(b);
 		}
-		for (int i = 0; i < enemies.size(); i++) {
-			if (enemies.get(i).destroyed) {
-				enemies.remove(i);
+		for (int i = 0; i < entities.size(); i++) {
+			if (entities.get(i).destroyed) {
+				entities.remove(i);
 			}
 		}
 	}

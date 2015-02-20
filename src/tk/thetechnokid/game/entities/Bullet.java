@@ -26,7 +26,7 @@ public class Bullet extends Entity {
 	public Bullet(Creature parent, Creature target) {
 		super(parent.x, parent.y, image);
 		this.target = target;
-		if(target.x == x && target.y == y) drawn  = true;
+		if(target.x == x && target.y == y) destroyed  = true;
 	}
 
 	public void render(Graphics g) {
