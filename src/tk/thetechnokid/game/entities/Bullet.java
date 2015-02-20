@@ -32,16 +32,11 @@ public class Bullet extends Entity {
 	}
 
 	public void render(Graphics g) {
-		if (!drawn) super.render(g);
-		if (y == 0) drawn = true;
+		super.render(g);
 	}
 
 	@Override
 	public void move() {
-		if(drawn&&parent instanceof Player) {
-			Player newParent = (Player) parent;
-			newParent.removeBullet(this);
-		}
 		if (target.y > y) ydir = 1;
 		if (target.y < y) ydir = -1;
 		if (target.y == y) ydir = 0;
@@ -52,7 +47,7 @@ public class Bullet extends Entity {
 		x += SPEED * xdir;
 		if (Math.abs(target.x - x) <= 2 && Math.abs(target.y - y) <= 2) {
 			target.wound();
-			drawn = true;
+			destroyed = true;
 		}
 	}
 
