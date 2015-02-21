@@ -7,28 +7,27 @@ import java.util.Random;
 import tk.thetechnokid.game.Game;
 
 public class Map {
-	public static ArrayList<Tile> tiles = new ArrayList<>();
+	private static final int TILEWIDTH = 32;
+	private static final int TILEHEIGHT = 32;
 
-	private static int COLS = Game.WIDTH;
-	private static int ROWS = Game.HEIGHT;
+	public static ArrayList<Tile> tiles = new ArrayList<>();
 
 	public static void generateTiles() {
 		Tile[] all = { Tile.VOID, Tile.GRASS, Tile.WATER1, Tile.WATER2,
-				Tile.ROCK, Tile.DIRT, Tile.PORTAL };
+				Tile.ROCK, Tile.DIRT, Tile.PORTAL, Tile.TREE };
 
-		System.out.println(COLS);
-		System.out.println(ROWS);
-		
 		Random r = new Random();
-		for (int y = 26; y < COLS; y+=32) {
-			for (int x = 0; x < ROWS; x+=32) {
-				int rand = r.nextInt(all.length);
-				Tile t = all[rand];
-				t.x = x;
-				t.y = y;
+		for (int y = 0; y < Game.HEIGHT / TILEWIDTH; y ++) {
+			for (int x = 0; x < Game.WIDTH / TILEHEIGHT; x ++) {
+				Tile t = all[r.nextInt(all.length)];
+				t.x = x * TILEWIDTH;
+				t.y = y * TILEHEIGHT;
+				System.out.println(t.x + ", " + t.y);
 				tiles.add(t);
 			}
 		}
+
+		System.out.println(tiles.size());
 	}
 
 	public static void render(Graphics g) {

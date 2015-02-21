@@ -28,6 +28,7 @@ public class Tile extends Entity {
 	public static Tile WATER2 = new Tile(s.crop(4, 0, 32, 32), false);
 	public static Tile DIRT = new Tile(s.crop(5, 0, 32, 32), false);
 	public static Tile PORTAL = new Tile(s.crop(6, 0, 32, 32), false);
+	public static Tile TREE = new Tile(s.crop(7, 0, 32, 32), false);
 	// END TILES
 
 	BufferedImage image;
