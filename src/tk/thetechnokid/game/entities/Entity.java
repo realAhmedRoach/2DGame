@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 public abstract class Entity {
 	public int x;
 	public int y;
-	private BufferedImage image;
+	protected BufferedImage sprite;
 	public boolean destroyed;
 	protected int width;
 	protected int height;
@@ -14,17 +14,17 @@ public abstract class Entity {
 	public Entity(int x, int y, BufferedImage image) {
 		this.x = x;
 		this.y = y;
-		this.image = image;
-		width = this.image.getWidth();
-		height = this.image.getHeight();
+		this.sprite = image;
+		width = this.sprite.getWidth();
+		height = this.sprite.getHeight();
 	}
 	public abstract void move();
 	public BufferedImage getImage() {
-		return image;
+		return sprite;
 	}
 	
 	public void render(Graphics g) {
-		if(!destroyed) g.drawImage(getImage(), x, y, getImage().getWidth(), getImage().getHeight(), null);
+		if(!destroyed) g.drawImage(sprite, x, y, sprite.getWidth(), sprite.getHeight(), null);
 	}
 	
 	public Rectangle bounds() {
