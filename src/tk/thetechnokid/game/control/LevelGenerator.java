@@ -32,9 +32,7 @@ public class LevelGenerator {
 			int x = r.nextInt(Game.WIDTH);
 			int y = r.nextInt(Game.HEIGHT);
 			Enemy enemy = new Enemy(x,y);
-			Enemy enemy2 = new Enemy(x,y+100);
 			enemies.add(enemy);
-			enemies.add(enemy2);
 		}
 		
 		EntityController.enemies.addAll(enemies);

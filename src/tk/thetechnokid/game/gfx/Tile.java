@@ -1,5 +1,6 @@
 package tk.thetechnokid.game.gfx;
 
+import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -37,6 +38,10 @@ public class Tile extends Entity {
 		this.solid = solid;
 	}
 
+	@Override public void render(Graphics g) {
+		g.drawImage(image, x, y, null);
+	}
+	
 	public boolean isSolid() {
 		return solid;
 	}
