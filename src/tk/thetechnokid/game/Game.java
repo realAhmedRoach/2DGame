@@ -15,8 +15,8 @@ public class Game extends JFrame implements Runnable {
 	private static final long serialVersionUID = 6639258471146102807L;
 
 	private static final String TITLE = "Game";
-	public static final int WIDTH = 900;
-	public static final int HEIGHT = 700;
+	public static final int WIDTH = 800;
+	public static final int HEIGHT = 600;
 
 	private boolean running;
 	private Thread thread;
