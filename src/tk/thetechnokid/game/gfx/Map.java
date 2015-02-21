@@ -11,28 +11,35 @@ public class Map {
 	private static final int TILEHEIGHT = 32;
 
 	public static ArrayList<Tile> tiles = new ArrayList<>();
+	static Tile[][] tileArr;
 
 	public static void generateTiles() {
 		Tile[] all = { Tile.VOID, Tile.GRASS, Tile.WATER1, Tile.WATER2,
 				Tile.ROCK, Tile.DIRT, Tile.PORTAL, Tile.TREE };
 
+		tileArr = new Tile[Game.WIDTH / TILEHEIGHT][Game.HEIGHT / TILEWIDTH];
+
 		Random r = new Random();
-		for (int y = 0; y < Game.HEIGHT / TILEWIDTH; y ++) {
-			for (int x = 0; x < Game.WIDTH / TILEHEIGHT; x ++) {
+		for (int x = 0; x < Game.WIDTH / TILEWIDTH; x++) {
+			for (int y = 0; y < Game.HEIGHT / TILEHEIGHT; y++) {
 				Tile t = all[r.nextInt(all.length)];
 				t.x = x * TILEWIDTH;
 				t.y = y * TILEHEIGHT;
 				System.out.println(t.x + ", " + t.y);
+				tileArr[x][y] = t;
 				tiles.add(t);
 			}
 		}
 
-		System.out.println(tiles.size());
+		System.out.println(tiles.size() + ", " + tileArr.length + ", "
+				+ tileArr[0].length);
 	}
 
 	public static void render(Graphics g) {
-		for (Tile tile : tiles) {
-			g.drawImage(tile.getImage(), tile.x, tile.y, null);
+		for (int x = 0; x < Game.WIDTH / TILEWIDTH; x++) {
+			for (int y = 0; y < Game.HEIGHT / TILEHEIGHT; y++) {
+				tileArr[x][y].render(g);
+			}
 		}
 	}
 }

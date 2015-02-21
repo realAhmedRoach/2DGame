@@ -9,7 +9,7 @@ import tk.thetechnokid.game.gfx.Tile;
 
 public class Enemy extends Creature {
 
-	private static final int SPEED = 5;
+	private static final int SPEED = 3;
 	private static BufferedImage enemImg;
 	public boolean destroyed;
 
