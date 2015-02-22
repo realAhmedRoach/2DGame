@@ -61,12 +61,12 @@ public class EntityController {
 
 	public static void render(Graphics g) {
 		for (Entity entity : entities) {
-			entity.move();
+			entity.tick();
 			entity.render(g);
 			if (entity instanceof Player) {
 				Player p = (Player) entity;
 				for (Bullet b : p.bullets) {
-					b.move();
+					b.tick();
 					b.render(g);
 				}
 			}
