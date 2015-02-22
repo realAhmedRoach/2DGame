@@ -18,7 +18,7 @@ public abstract class Entity {
 		width = this.sprite.getWidth();
 		height = this.sprite.getHeight();
 	}
-	public abstract void move();
+	public abstract void tick();
 	public BufferedImage getImage() {
 		return sprite;
 	}

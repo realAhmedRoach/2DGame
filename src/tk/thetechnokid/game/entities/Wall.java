@@ -6,6 +6,8 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import tk.thetechnokid.game.control.EntityController;
+
 public class Wall extends Entity {
 
 	private static BufferedImage image;
@@ -17,12 +19,20 @@ public class Wall extends Entity {
 			e.printStackTrace();
 		}
 	}
+
+	private boolean movedUser;
 	
 	public Wall(int x, int y) {
 		super(x, y, image);
 	}
 
 	@Override
-	public void move() {
+	public void tick() {
+		if(EntityController.user.bounds().intersects(bounds())) {
+			x--;
+			if(!movedUser ) {
+			EntityController.user.x = x;
+			movedUser = true;}
+		}	
 	}
 }

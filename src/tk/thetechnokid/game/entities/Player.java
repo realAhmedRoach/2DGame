@@ -29,10 +29,10 @@ public class Player extends Creature {
 	}
 	
 	@Override
-	public void move() {
+	public void tick() {
 		checkInputs();
 		checkShots();
-		super.move();
+		super.tick();
 	}
 
 	private void checkShots() {

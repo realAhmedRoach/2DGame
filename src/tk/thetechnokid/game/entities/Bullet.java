@@ -34,7 +34,7 @@ public class Bullet extends Entity {
 	}
 
 	@Override
-	public void move() {
+	public void tick() {
 		if (target.y > y) ydir = 1;
 		if (target.y < y) ydir = -1;
 		if (target.y == y) ydir = 0;

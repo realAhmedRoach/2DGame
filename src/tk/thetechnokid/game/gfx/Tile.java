@@ -48,6 +48,6 @@ public class Tile extends Entity {
 	}
 
 	@Override
-	public void move() {
+	public void tick() {
 	}
 }

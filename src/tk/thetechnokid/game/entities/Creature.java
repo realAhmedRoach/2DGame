@@ -23,8 +23,12 @@ public abstract class Creature extends Entity {
 	}
 	
 	@Override
-	public void move() {
+	public void tick() {
 		checkHealth();
+		move();
+	}
+	
+	public void move() {
 		x+=xMove;
 		y+=yMove;
 	}

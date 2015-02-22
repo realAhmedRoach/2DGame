@@ -11,7 +11,6 @@ public class Enemy extends Creature {
 
 	private static final int SPEED = 3;
 	private static BufferedImage enemImg;
-	public boolean destroyed;
 
 	public ArrayList<Bullet> bullets = new ArrayList<>();
 
@@ -28,7 +27,7 @@ public class Enemy extends Creature {
 	}
 
 	@Override
-	public void move() {
+	public void tick() {
 		checkPos();
 
 		if (Math.abs(EntityController.user.x - x) == 5)
@@ -38,7 +37,7 @@ public class Enemy extends Creature {
 		if (x == EntityController.user.x && y == EntityController.user.y)
 			EntityController.user.wound();
 
-		super.move();
+		super.tick();
 	}
 
 	public void checkPos() {
