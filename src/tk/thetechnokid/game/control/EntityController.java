@@ -45,6 +45,9 @@ public class EntityController {
 		if (e instanceof Enemy) {
 			Enemy en = (Enemy) e;
 			enemies.remove(en);
+		} else if (e instanceof Wall) {
+			Wall w = (Wall) e;
+			walls.remove(e);
 		}
 	}
 
