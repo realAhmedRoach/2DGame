@@ -46,7 +46,7 @@ public class Bullet extends Entity {
 		y += SPEED * ydir;
 		x += SPEED * xdir;
 		if (Math.abs(target.x - x) <= 2 && Math.abs(target.y - y) <= 2) {
-			EntityController.removeEntity(target);
+			EntityController.entities.remove(target);
 			destroyed = true;
 		}
 	}

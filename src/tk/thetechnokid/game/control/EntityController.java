@@ -35,7 +35,7 @@ public class EntityController {
 		walls.add(w);
 		addEntity(w);
 	}
-	
+
 	public static void addEntity(Entity e) {
 		entities.add(e);
 	}
@@ -47,7 +47,7 @@ public class EntityController {
 			enemies.remove(en);
 		} else if (e instanceof Wall) {
 			Wall w = (Wall) e;
-			walls.remove(e);
+			walls.remove(w);
 		}
 	}
 
