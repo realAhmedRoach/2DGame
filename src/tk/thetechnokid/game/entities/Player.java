@@ -1,7 +1,7 @@
 package tk.thetechnokid.game.entities;
 
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import tk.thetechnokid.game.Game;
 import tk.thetechnokid.game.control.EntityController;
@@ -12,7 +12,7 @@ public class Player extends Creature {
 
 	private static final int SPEED = 3;
 	private static BufferedImage image;
-	public ArrayList<Bullet> bullets = new ArrayList<>();
+	public CopyOnWriteArrayList<Bullet> bullets = new CopyOnWriteArrayList<>();
 	private boolean shot;
 
 	int enemyLoc = 0;
@@ -27,7 +27,7 @@ public class Player extends Creature {
 		super((int) (Math.random() * 101), (int) (Math.random() * 101), image);
 		health = 20;
 	}
-	
+
 	@Override
 	public void tick() {
 		checkInputs();
@@ -82,7 +82,7 @@ public class Player extends Creature {
 				xMove = -SPEED;
 		}
 	}
-	
+
 	public void removeBullet(Bullet crap) {
 		EntityController.user.bullets.remove(crap);
 	}

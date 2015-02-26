@@ -1,24 +1,20 @@
 package tk.thetechnokid.game.control;
 
 import java.awt.Graphics;
-import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 
-import tk.thetechnokid.game.entities.Bullet;
-import tk.thetechnokid.game.entities.Enemy;
-import tk.thetechnokid.game.entities.Entity;
-import tk.thetechnokid.game.entities.Player;
-import tk.thetechnokid.game.entities.Wall;
+import tk.thetechnokid.game.entities.*;
 
 public class EntityController {
-	public static ArrayList<Entity> entities;
-	public static ArrayList<Enemy> enemies;
-	public static ArrayList<Wall> walls;
+	public static CopyOnWriteArrayList<Entity> entities;
+	public static CopyOnWriteArrayList<Enemy> enemies;
+	public static CopyOnWriteArrayList<Wall> walls;
 
 	public static Player user;
 	static {
-		entities = new ArrayList<>();
-		enemies = new ArrayList<>();
-		walls = new ArrayList<>();
+		entities = new CopyOnWriteArrayList<>();
+		enemies = new CopyOnWriteArrayList<>();
+		walls = new CopyOnWriteArrayList<>();
 	}
 
 	public static void setUser(Player u) {
