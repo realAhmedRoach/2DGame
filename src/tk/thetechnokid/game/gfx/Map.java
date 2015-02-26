@@ -25,7 +25,6 @@ public class Map {
 				Tile t = all[r.nextInt(all.length)];
 				t.x = x * TILEWIDTH;
 				t.y = y * TILEHEIGHT;
-				System.out.println(t.x + ", " + t.y);
 				tileArr[x][y] = t;
 				tiles.add(t);
 			}
