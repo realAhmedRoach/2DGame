@@ -4,8 +4,7 @@ import java.awt.image.BufferedImage;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import tk.thetechnokid.game.Game;
-import tk.thetechnokid.game.control.EntityController;
-import tk.thetechnokid.game.control.InputHandler;
+import tk.thetechnokid.game.control.*;
 import tk.thetechnokid.game.gfx.Tile;
 
 public class Player extends Creature {
@@ -44,6 +43,7 @@ public class Player extends Creature {
 						EntityController.enemies.get(enemyLoc++));
 				bullets.add(b);
 			} catch (IndexOutOfBoundsException e) {
+				LevelGenerator.generateRandomLevel();
 			}
 			lastShot = System.currentTimeMillis();
 			shot = true;

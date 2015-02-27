@@ -1,14 +1,11 @@
 package tk.thetechnokid.game.control;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
 
 import tk.thetechnokid.game.Game;
-import tk.thetechnokid.game.entities.Enemy;
-import tk.thetechnokid.game.entities.Wall;
+import tk.thetechnokid.game.entities.*;
 
 public class LevelGenerator {
 	public static void generateRandomLevel() {
@@ -39,6 +36,9 @@ public class LevelGenerator {
 		EntityController.walls.addAll(walls);
 		EntityController.entities.addAll(enemies);
 		EntityController.entities.addAll(walls);
+		
+		Player user = new Player();
+		EntityController.setUser(user);
 	}
 
 	public static void generateFromFile(String path) {
