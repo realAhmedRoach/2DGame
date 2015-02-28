@@ -7,8 +7,6 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import tk.thetechnokid.game.control.EntityController;
-
 public class Bullet extends Entity {
 	private static BufferedImage image;
 	private static final int SPEED = 3;
@@ -17,7 +15,7 @@ public class Bullet extends Entity {
 	private int xdir, ydir;
 
 	private long startTime;
-	
+
 	static {
 		try {
 			image = ImageIO.read(new File("res/bullet.png"));
@@ -40,7 +38,7 @@ public class Bullet extends Entity {
 
 	@Override
 	public void tick() {
-		if(System.currentTimeMillis()-startTime>500) {
+		if(System.currentTimeMillis()-startTime>1000) {
 			destroyed = true;
 			return;
 		}

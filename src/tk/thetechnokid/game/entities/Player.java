@@ -1,7 +1,6 @@
 package tk.thetechnokid.game.entities;
 
 import java.awt.image.BufferedImage;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 import tk.thetechnokid.game.Game;
 import tk.thetechnokid.game.control.*;
@@ -9,9 +8,8 @@ import tk.thetechnokid.game.gfx.Tile;
 
 public class Player extends Creature {
 
-	private static final int SPEED = 3;
+	private static final int SPEED = 4;
 	private static BufferedImage image;
-	public CopyOnWriteArrayList<Bullet> bullets = new CopyOnWriteArrayList<>();
 	private boolean shot;
 
 	int enemyLoc = 0;
@@ -31,6 +29,8 @@ public class Player extends Creature {
 	public void tick() {
 		checkInputs();
 		checkShots();
+		if (EntityController.enemies.isEmpty())
+			LevelGenerator.generateRandomLevel();
 		super.tick();
 	}
 
@@ -39,11 +39,9 @@ public class Player extends Creature {
 			if (shot)
 				return;
 			try {
-				Bullet b = new Bullet(this,
-						EntityController.enemies.get(enemyLoc++));
+				Bullet b = new Bullet(this, EntityController.enemies.get(enemyLoc++));
 				EntityController.bullets.add(b);
 			} catch (IndexOutOfBoundsException e) {
-				// LevelGenerator.generateRandomLevel();
 			}
 			lastShot = System.currentTimeMillis();
 			shot = true;
@@ -57,34 +55,33 @@ public class Player extends Creature {
 		yMove = 0;
 
 		if (InputHandler.isUp()) {
-			sprite = Tile.s.crop(0,2,32,32);
+			sprite = Tile.s.crop(0, 2, 32, 32);
 			if (y <= 25)
 				y = 25;
 			else
 				yMove = -SPEED;
-		} if (InputHandler.isDown()) {
-			sprite = Tile.s.crop(0,1,32,32);
+		}
+		if (InputHandler.isDown()) {
+			sprite = Tile.s.crop(0, 1, 32, 32);
 			if (y >= Game.HEIGHT - getImage().getHeight())
 				y = Game.HEIGHT - getImage().getHeight();
 			else
 				yMove = SPEED;
-		} if (InputHandler.isRight()) {
-			sprite = Tile.s.crop(0,3,32,32);
+		}
+		if (InputHandler.isRight()) {
+			sprite = Tile.s.crop(0, 3, 32, 32);
 			if (x >= Game.WIDTH - getImage().getWidth())
 				x = Game.WIDTH - getImage().getWidth();
 			else
 				xMove = SPEED;
-		} if (InputHandler.isLeft()) {
-			sprite = Tile.s.crop(0,4,32,32);
+		}
+		if (InputHandler.isLeft()) {
+			sprite = Tile.s.crop(0, 4, 32, 32);
 			if (x <= 2)
 				x = 2;
 			else
 				xMove = -SPEED;
 		}
-	}
-
-	public void removeBullet(Bullet crap) {
-		EntityController.bullets.remove(crap);
 	}
 
 }

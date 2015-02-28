@@ -50,9 +50,13 @@ public class EntityController {
 	}
 
 	public static void tick() {
-		for (int i = 0; i < entities.size(); i++) {
-			if (entities.get(i).destroyed) {
-				removeEntity(entities.get(i));
+		for (Entity e : entities) {
+			if (e.destroyed) {
+				removeEntity(e);
+			}
+		} for (Bullet b : bullets) {
+			if (b.destroyed) {
+				bullets.remove(b);
 			}
 		}
 	}
@@ -61,14 +65,10 @@ public class EntityController {
 		for (Entity entity : entities) {
 			entity.tick();
 			entity.render(g);
-			if (entity instanceof Player) {
-				Player p = (Player) entity;
-				for (Bullet b : p.bullets) {
-					b.tick();
-					b.render(g);
-				}
-			}
 		}
-
+		for (Bullet b: bullets) {
+			b.tick();
+			b.render(g);
+		}
 	}
 }
