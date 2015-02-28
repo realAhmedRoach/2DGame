@@ -11,6 +11,10 @@ public abstract class Entity {
 	protected int width;
 	protected int height;
 	
+	public Entity(int x, int y) {
+		this(x,y);
+	}
+
 	public Entity(int x, int y, BufferedImage image) {
 		this.x = x;
 		this.y = y;
@@ -18,7 +22,9 @@ public abstract class Entity {
 		width = this.sprite.getWidth();
 		height = this.sprite.getHeight();
 	}
+
 	public abstract void tick();
+	
 	public BufferedImage getImage() {
 		return sprite;
 	}
