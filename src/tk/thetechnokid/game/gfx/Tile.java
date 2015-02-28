@@ -14,7 +14,7 @@ import tk.thetechnokid.game.entities.Entity;
 public class Tile extends Entity {
 
 	public static Spritesheet s;
-	public static ArrayList<Tile> TILES = new ArrayList<Tile>();
+	public static final ArrayList<Tile> TILES = new ArrayList<Tile>();
 
 	static {
 		try {

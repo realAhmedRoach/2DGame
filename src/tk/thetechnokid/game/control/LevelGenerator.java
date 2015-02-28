@@ -17,14 +17,14 @@ public class LevelGenerator {
 		ArrayList<Enemy> enemies = new ArrayList<>();
 
 		Random r = new Random();
-		for(int i = 0; i<rand;i++) {
+		for(int i = 0; i<r.nextInt(6);i++) {
 			int x = r.nextInt(Game.WIDTH);
 			int y = r.nextInt(Game.HEIGHT);
 			Wall wall = new Wall(x,y);
 			Wall wall2 = new Wall(x,y+100);
 			walls.add(wall);
 			walls.add(wall2);
-		} for (int i = 0; i<r.nextInt(6); i++) {
+		} for (int i = 0; i<r.nextInt(5)+1; i++) {
 			int x = r.nextInt(Game.WIDTH);
 			int y = r.nextInt(Game.HEIGHT);
 			Enemy enemy = new Enemy(x,y);
@@ -35,7 +35,7 @@ public class LevelGenerator {
 		EntityController.walls.addAll(walls);
 		EntityController.entities.addAll(enemies);
 		EntityController.entities.addAll(walls);
-		
+
 		Player user = new Player();
 		EntityController.setUser(user);
 	}

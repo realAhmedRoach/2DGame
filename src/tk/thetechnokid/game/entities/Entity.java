@@ -10,9 +10,9 @@ public abstract class Entity {
 	public boolean destroyed;
 	protected int width;
 	protected int height;
-	
+
 	public Entity(int x, int y) {
-		this(x,y);
+		this(x,y,null);
 	}
 
 	public Entity(int x, int y, BufferedImage image) {
@@ -24,15 +24,15 @@ public abstract class Entity {
 	}
 
 	public abstract void tick();
-	
+
 	public BufferedImage getImage() {
 		return sprite;
 	}
-	
+
 	public void render(Graphics g) {
 		if(!destroyed) g.drawImage(sprite, x, y, sprite.getWidth(), sprite.getHeight(), null);
 	}
-	
+
 	public Rectangle bounds() {
 		Rectangle r = new Rectangle(x,y,width,height);
 		return r;
