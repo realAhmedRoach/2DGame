@@ -27,8 +27,8 @@ public class Wall extends Entity {
 	@Override
 	public void tick() {
 		if(EntityController.user.bounds().intersects(bounds())) {
-			EntityController.user.x = x + 5;
-			EntityController.user.y = y + 5;
+			EntityController.user.x = x + 25;
+			EntityController.user.y = y + 25;
 		}
 	}
 }
