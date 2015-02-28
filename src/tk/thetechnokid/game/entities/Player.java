@@ -42,6 +42,7 @@ public class Player extends Creature {
 				Bullet b = new Bullet(this, EntityController.enemies.get(enemyLoc++));
 				EntityController.bullets.add(b);
 			} catch (IndexOutOfBoundsException e) {
+				enemyLoc = 0;
 			}
 			lastShot = System.currentTimeMillis();
 			shot = true;

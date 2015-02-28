@@ -1,9 +1,11 @@
 package tk.thetechnokid.game.gfx;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
@@ -12,6 +14,7 @@ import tk.thetechnokid.game.entities.Entity;
 public class Tile extends Entity {
 
 	public static Spritesheet s;
+	public static ArrayList<Tile> TILES = new ArrayList<Tile>();
 
 	static {
 		try {
@@ -39,10 +42,19 @@ public class Tile extends Entity {
 		this.solid = solid;
 	}
 
+	public static Tile tileAt(Rectangle bounds) {
+		for (Tile t : TILES) {
+			if (t.bounds().intersects(bounds)) {
+				return t;
+			}
+		}
+		return VOID;
+	}
+
 	@Override public void render(Graphics g) {
 		g.drawImage(image, x, y, null);
 	}
-	
+
 	public boolean isSolid() {
 		return solid;
 	}

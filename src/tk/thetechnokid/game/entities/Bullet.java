@@ -38,7 +38,7 @@ public class Bullet extends Entity {
 
 	@Override
 	public void tick() {
-		if(System.currentTimeMillis()-startTime>1000) {
+		if((System.currentTimeMillis()-startTime)>1000) {
 			destroyed = true;
 			return;
 		}
@@ -51,7 +51,7 @@ public class Bullet extends Entity {
 		y += SPEED * ydir;
 		x += SPEED * xdir;
 		if (Math.abs(target.x - x) <= 2 && Math.abs(target.y - y) <= 2) {
-			target.wound();
+			target.destroyed = true;
 			destroyed = true;
 		}
 	}
