@@ -43,10 +43,10 @@ public class Enemy extends Creature {
 	public void checkPos() {
 		int rand = (int) (Math.random() * 6);
 		if (rand <= 2) return;
-		if (EntityController.user.x > x) x += SPEED;
-		if (EntityController.user.x < x) x -= SPEED;
-		if (EntityController.user.y > y) y += SPEED;
-		if (EntityController.user.y < y) y -= SPEED;
+		if (EntityController.user.x > x) xMove = SPEED;
+		if (EntityController.user.x < x) xMove = -SPEED;
+		if (EntityController.user.y > y) yMove = SPEED;
+		if (EntityController.user.y < y) yMove = -SPEED;
 
 		if (rand <= 2) bullets.add(new Bullet(this, EntityController.user));
 	}

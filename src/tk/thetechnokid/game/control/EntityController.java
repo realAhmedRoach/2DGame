@@ -9,12 +9,14 @@ public class EntityController {
 	public static CopyOnWriteArrayList<Entity> entities;
 	public static CopyOnWriteArrayList<Enemy> enemies;
 	public static CopyOnWriteArrayList<Wall> walls;
+	public static CopyOnWriteArrayList<Bullet> bullets;
 
 	public static Player user;
 	static {
 		entities = new CopyOnWriteArrayList<>();
 		enemies = new CopyOnWriteArrayList<>();
 		walls = new CopyOnWriteArrayList<>();
+		bullets = new CopyOnWriteArrayList<>();
 	}
 
 	public static void setUser(Player u) {
@@ -48,12 +50,9 @@ public class EntityController {
 	}
 
 	public static void tick() {
-		for (Bullet b : user.bullets) {
-			if (b.destroyed) user.removeBullet(b);
-		}
 		for (int i = 0; i < entities.size(); i++) {
 			if (entities.get(i).destroyed) {
-				entities.remove(i);
+				removeEntity(entities.get(i));
 			}
 		}
 	}

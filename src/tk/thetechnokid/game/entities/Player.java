@@ -41,9 +41,9 @@ public class Player extends Creature {
 			try {
 				Bullet b = new Bullet(this,
 						EntityController.enemies.get(enemyLoc++));
-				bullets.add(b);
+				EntityController.bullets.add(b);
 			} catch (IndexOutOfBoundsException e) {
-				LevelGenerator.generateRandomLevel();
+				// LevelGenerator.generateRandomLevel();
 			}
 			lastShot = System.currentTimeMillis();
 			shot = true;
@@ -84,7 +84,7 @@ public class Player extends Creature {
 	}
 
 	public void removeBullet(Bullet crap) {
-		EntityController.user.bullets.remove(crap);
+		EntityController.bullets.remove(crap);
 	}
 
 }
