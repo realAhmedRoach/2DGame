@@ -13,11 +13,10 @@ public class LevelGenerator {
 		EntityController.enemies.clear();
 		EntityController.walls.clear();
 
-		int rand = (int) (Math.random()*6);
 		ArrayList<Wall> walls = new ArrayList<>();
 		ArrayList<Enemy> enemies = new ArrayList<>();
-		Random r = new Random();
 
+		Random r = new Random();
 		for(int i = 0; i<rand;i++) {
 			int x = r.nextInt(Game.WIDTH);
 			int y = r.nextInt(Game.HEIGHT);
