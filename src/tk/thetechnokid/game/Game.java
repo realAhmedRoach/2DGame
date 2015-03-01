@@ -13,7 +13,7 @@ import tk.thetechnokid.game.states.State;
 public class Game extends JFrame implements Runnable {
 	private static final long serialVersionUID = 6639258471146102807L;
 
-	private static final String TITLE = "Game";
+	private static final String TITLE = "Runner";
 	public static final int WIDTH = 800;
 	public static final int HEIGHT = 600;
 
