@@ -15,7 +15,7 @@ public abstract class Creature extends Entity {
 	}
 
 	protected void checkHealth() {
-		if(health == 0) destroyed = true;
+		if(health <= 0) destroyed = true;
 	}
 	
 	public void wound() {
