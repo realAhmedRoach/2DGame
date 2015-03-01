@@ -29,8 +29,6 @@ public class Player extends Creature {
 	public void tick() {
 		checkInputs();
 		checkShots();
-		if (EntityController.enemies.isEmpty())
-			LevelGenerator.generateRandomLevel();
 		super.tick();
 	}
 

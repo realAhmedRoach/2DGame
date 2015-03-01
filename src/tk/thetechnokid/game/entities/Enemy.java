@@ -30,8 +30,8 @@ public class Enemy extends Creature {
 	public void tick() {
 		checkPos();
 
-		boolean diffX = Math.abs(EntityController.user.x - x) == 5;		
-		boolean diffY = Math.abs(EntityController.user.y - y) == 5;
+		boolean diffX = Math.abs(EntityController.user.x - x) <= 5;
+		boolean diffY = Math.abs(EntityController.user.y - y) <= 5;
 		if (diffY && diffX)
 			EntityController.user.wound();
 

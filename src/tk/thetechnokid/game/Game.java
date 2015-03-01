@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 
 import tk.thetechnokid.game.control.*;
 import tk.thetechnokid.game.gfx.Map;
+import tk.thetechnokid.game.states.MenuState;
+import tk.thetechnokid.game.states.State;
 
 public class Game extends JFrame implements Runnable {
 	private static final long serialVersionUID = 6639258471146102807L;
@@ -17,6 +19,9 @@ public class Game extends JFrame implements Runnable {
 
 	private boolean running;
 	private Thread thread;
+
+	public static int KILLS;
+	public static int LEVEL;
 
 	public Game() {
 		setResizable(false);
@@ -30,7 +35,7 @@ public class Game extends JFrame implements Runnable {
 	}
 
 	public void tick() {
-		EntityController.tick();
+		State.getCurrentState().tick();
 	}
 
 	public void render() {
@@ -42,8 +47,9 @@ public class Game extends JFrame implements Runnable {
 
 		Graphics g = bs.getDrawGraphics();
 		g.clearRect(0, 0, getWidth(), getHeight());
-		Map.render(g);
-		EntityController.render(g);
+
+		State.getCurrentState().render(g);
+
 		g.dispose();
 		bs.show();
 	}
@@ -51,6 +57,8 @@ public class Game extends JFrame implements Runnable {
 	private void init() {
 		Map.generateTiles();
 		LevelGenerator.generateRandomLevel();
+
+		State.setState(new MenuState());
 	}
 
 	public synchronized void start() {

@@ -7,6 +7,8 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import tk.thetechnokid.game.Game;
+
 public class Bullet extends Entity {
 	private static BufferedImage image;
 	private static final int SPEED = 4;
@@ -50,9 +52,11 @@ public class Bullet extends Entity {
 		if (target.x == x) xdir = 0;
 		y += SPEED * ydir;
 		x += SPEED * xdir;
-		if (Math.abs(target.x - x) <= 2 && Math.abs(target.y - y) <= 2) {
+		boolean atTarget = Math.abs(target.x - x) <= 2 && Math.abs(target.y - y) <= 2;
+		if (atTarget&&!destroyed) {
 			target.destroyed = true;
 			destroyed = true;
+			Game.KILLS++;
 		}
 	}
 
