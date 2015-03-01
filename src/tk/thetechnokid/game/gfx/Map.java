@@ -1,7 +1,6 @@
 package tk.thetechnokid.game.gfx;
 
 import java.awt.Graphics;
-import java.util.ArrayList;
 import java.util.Random;
 
 import tk.thetechnokid.game.Game;
@@ -9,8 +8,6 @@ import tk.thetechnokid.game.Game;
 public class Map {
 	private static final int TILEWIDTH = 32;
 	private static final int TILEHEIGHT = 32;
-
-	public static ArrayList<Tile> tiles = new ArrayList<>();
 
 	public static void generateTiles() {
 		Tile[] all = { Tile.VOID, Tile.GRASS, Tile.WATER1, Tile.WATER2,
