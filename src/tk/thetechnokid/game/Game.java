@@ -56,7 +56,6 @@ public class Game extends JFrame implements Runnable {
 
 	private void init() {
 		Map.generateTiles();
-		LevelGenerator.generateRandomLevel();
 
 		State.setState(new MenuState());
 	}

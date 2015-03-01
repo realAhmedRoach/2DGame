@@ -8,6 +8,10 @@ import tk.thetechnokid.game.control.LevelGenerator;
 
 public class GameState extends State {
 
+	public GameState() {
+		LevelGenerator.generateRandomLevel();
+	}
+
 	@Override
 	public void render(Graphics g) {
 		// Map.render(g);
