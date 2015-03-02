@@ -11,7 +11,10 @@ public class Enemy extends Creature {
 
 	private static final int SPEED = 3;
 	private static BufferedImage enemImg;
-
+	
+	boolean diffX;
+	boolean diffY;
+	
 	public ArrayList<Bullet> bullets = new ArrayList<>();
 
 	static {
@@ -30,8 +33,8 @@ public class Enemy extends Creature {
 	public void tick() {
 		checkPos();
 
-		boolean diffX = Math.abs(EntityController.user.x - x) <= 5;
-		boolean diffY = Math.abs(EntityController.user.y - y) <= 5;
+		diffX = Math.abs(EntityController.user.x - x) <= 5;
+		diffY = Math.abs(EntityController.user.y - y) <= 5;
 		if (diffY && diffX)
 			EntityController.user.wound();
 
@@ -41,10 +44,12 @@ public class Enemy extends Creature {
 	public void checkPos() {
 		int rand = (int) (Math.random() * 6);
 		if (rand <= 2) return;
-		if (EntityController.user.x > x) xMove = SPEED;
-		if (EntityController.user.x < x) xMove = -SPEED;
-		if (EntityController.user.y > y) yMove = SPEED;
-		if (EntityController.user.y < y) yMove = -SPEED;
+		if (EntityController.user.x > x && !diffX) xMove = SPEED;
+		if (EntityController.user.x < x && !diffX) xMove = -SPEED;
+		if (EntityController.user.y > y && !diffY) yMove = SPEED;
+		if (EntityController.user.y < y && !diffY) yMove = -SPEED;
+		if(diffX) xMove = 0;
+		if(diffY) yMove = 0;
 
 		if (rand <= 2) bullets.add(new Bullet(this, EntityController.user));
 	}
