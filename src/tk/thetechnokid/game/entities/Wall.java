@@ -26,7 +26,9 @@ public class Wall extends Entity {
 
 	@Override
 	public void tick() {
-		if(EntityController.user.bounds().intersects(bounds())) {
+		for(Bullet b : EntityController.bullets) {
+			if(b.bounds().intersects(bounds()))
+				b.destroyed = true;
 		}
 	}
 }
