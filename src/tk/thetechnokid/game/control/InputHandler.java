@@ -10,6 +10,7 @@ public class InputHandler extends KeyAdapter {
 	private static boolean right;
 	private static boolean left;
 	private static boolean space;
+	private static boolean esc;
 
 	private void update() {
 		up = keys[KeyEvent.VK_UP];
@@ -17,6 +18,7 @@ public class InputHandler extends KeyAdapter {
 		right = keys[KeyEvent.VK_RIGHT];
 		left = keys[KeyEvent.VK_LEFT];
 		space = keys[KeyEvent.VK_SPACE];
+		esc = keys[KeyEvent.VK_ESCAPE];
 	}
 
 	@Override
@@ -49,5 +51,9 @@ public class InputHandler extends KeyAdapter {
 
 	public static boolean isSpace() {
 		return space;
+	}
+
+	public static boolean isEsc() {
+		return esc;
 	}
 }

@@ -36,7 +36,7 @@ public class EndGameState extends State {
 			Game.LEVEL = 1;
 			Game.KILLS = 0;
 			State.setState(new GameState());
-		}
+		} if(InputHandler.isEsc()) System.exit(0);
 	}
 
 }
