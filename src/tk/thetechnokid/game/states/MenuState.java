@@ -2,11 +2,11 @@ package tk.thetechnokid.game.states;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import tk.thetechnokid.game.Game;
 import tk.thetechnokid.game.control.InputHandler;
 
 public class MenuState extends State {
@@ -15,7 +15,7 @@ public class MenuState extends State {
 
 	public MenuState() {
 		try {
-			menuImage = ImageIO.read(new File("res/menu.png"));
+			menuImage = ImageIO.read(Game.class.getResource("/menu.png"));
 		} catch(IOException e) {
 			e.printStackTrace();
 		}

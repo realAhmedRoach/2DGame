@@ -3,12 +3,12 @@ package tk.thetechnokid.game.gfx;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
+import tk.thetechnokid.game.Game;
 import tk.thetechnokid.game.entities.Entity;
 
 public class Tile extends Entity {
@@ -18,7 +18,7 @@ public class Tile extends Entity {
 
 	static {
 		try {
-			s = new Spritesheet(ImageIO.read(new File("res/spritesheet.png")));
+			s = new Spritesheet(ImageIO.read(Game.class.getResource("/spritesheet.png")));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

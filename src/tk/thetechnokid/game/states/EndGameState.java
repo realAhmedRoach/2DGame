@@ -2,7 +2,6 @@ package tk.thetechnokid.game.states;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -16,7 +15,7 @@ public class EndGameState extends State {
 
 	public EndGameState() {
 		try {
-			image = ImageIO.read(new File("res/endgame.png"));
+			image = ImageIO.read(Game.class.getResource("/endgame.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

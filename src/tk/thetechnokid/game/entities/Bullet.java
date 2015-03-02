@@ -2,7 +2,6 @@ package tk.thetechnokid.game.entities;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -20,7 +19,7 @@ public class Bullet extends Entity {
 
 	static {
 		try {
-			image = ImageIO.read(new File("res/bullet.png"));
+			image = ImageIO.read(Game.class.getResource("/bullet.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

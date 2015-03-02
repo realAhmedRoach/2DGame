@@ -1,11 +1,11 @@
 package tk.thetechnokid.game.entities;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import tk.thetechnokid.game.Game;
 import tk.thetechnokid.game.control.EntityController;
 
 public class Wall extends Entity {
@@ -14,7 +14,7 @@ public class Wall extends Entity {
 
 	static {
 		try {
-			image = ImageIO.read(new File("res/wall.png"));
+			image = ImageIO.read(Game.class.getResource("/wall.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
