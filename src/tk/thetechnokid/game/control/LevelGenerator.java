@@ -24,7 +24,7 @@ public class LevelGenerator {
 			Wall wall2 = new Wall(x,y+100);
 			walls.add(wall);
 			walls.add(wall2);
-		} for (int i = 0; i<r.nextInt(5)+1; i++) {
+		} for (int i = 0; i<r.nextInt(5)+Game.LEVEL; i++) {
 			int x = r.nextInt(Game.WIDTH);
 			int y = r.nextInt(Game.HEIGHT);
 			Enemy enemy = new Enemy(x,y);
