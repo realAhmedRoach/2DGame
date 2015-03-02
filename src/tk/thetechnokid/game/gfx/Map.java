@@ -1,7 +1,7 @@
 package tk.thetechnokid.game.gfx;
 
-import java.awt.*;
-import java.awt.image.BufferedImage;
+import java.awt.Graphics;
+import java.awt.Point;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -24,7 +24,7 @@ public class Map {
 			}
 		}
 	}
-	
+
 	public static void render(Graphics g) {
 		for (Point p : tiles.keySet()) {
 			g.drawImage(tiles.get(p).getImage(), p.x, p.y, null);

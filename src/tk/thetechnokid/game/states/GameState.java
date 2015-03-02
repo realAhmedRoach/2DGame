@@ -1,9 +1,6 @@
 package tk.thetechnokid.game.states;
 
 import java.awt.Graphics;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
 
 import tk.thetechnokid.game.Game;
 import tk.thetechnokid.game.control.EntityController;
