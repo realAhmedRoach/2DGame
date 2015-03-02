@@ -5,8 +5,7 @@ import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
 
-import tk.thetechnokid.game.control.*;
-import tk.thetechnokid.game.gfx.Map;
+import tk.thetechnokid.game.control.InputHandler;
 import tk.thetechnokid.game.states.MenuState;
 import tk.thetechnokid.game.states.State;
 
@@ -55,8 +54,6 @@ public class Game extends JFrame implements Runnable {
 	}
 
 	private void init() {
-		Map.generateTiles();
-
 		State.setState(new MenuState());
 	}
 
