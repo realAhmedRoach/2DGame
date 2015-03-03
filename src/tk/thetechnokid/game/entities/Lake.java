@@ -12,7 +12,7 @@ public class Lake extends Entity {
 	private HashMap<Point, Tile> tiles = new HashMap<>();
 
 	public Lake(int x, int y, int w, int h) {
-		super(x, y,Tile.WATER1.getImage());
+		super(x, y);
 		generateTiles();
 	}
 
