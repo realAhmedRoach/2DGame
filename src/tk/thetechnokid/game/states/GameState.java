@@ -16,7 +16,7 @@ public class GameState extends State {
 
 	@Override
 	public void render(Graphics g) {
-		Map.render(g);
+//		Map.render(g);
 		EntityController.render(g);
 	}
 

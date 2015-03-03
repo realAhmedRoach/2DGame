@@ -35,6 +35,7 @@ public class LevelGenerator {
 		EntityController.walls.addAll(walls);
 		EntityController.entities.addAll(enemies);
 		EntityController.entities.addAll(walls);
+		EntityController.entities.add(new Lake(10,10,5,5));
 
 		Player user = new Player();
 		EntityController.setUser(user);
