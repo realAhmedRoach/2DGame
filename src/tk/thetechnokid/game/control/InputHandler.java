@@ -4,7 +4,8 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class InputHandler extends KeyAdapter {
-	private boolean[] keys = new boolean[130];
+	private static final int MAX_KEY = 130;
+	private boolean[] keys = new boolean[MAX_KEY];
 	private static boolean up;
 	private static boolean down;
 	private static boolean right;
@@ -23,12 +24,16 @@ public class InputHandler extends KeyAdapter {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
+		if (e.getKeyCode() > MAX_KEY)
+			return;
 		keys[e.getKeyCode()] = true;
 		update();
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
+		if (e.getKeyCode() > MAX_KEY)
+			return;
 		keys[e.getKeyCode()] = false;
 		update();
 	}
