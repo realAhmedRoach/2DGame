@@ -6,19 +6,16 @@ import java.util.HashMap;
 
 import tk.thetechnokid.game.gfx.Tile;
 
-public class Lake extends Entity {
+public class Lake extends MapObject {
 
-	private int w, h;
 	private HashMap<Point, Tile> tiles = new HashMap<>();
 
 	public Lake(int x, int y, int w, int h) {
-		super(x, y);
-		this.h = h;
-		this.w = w;
+		super(x, y,w,h);
 		generateTiles();
 	}
 
-	private void generateTiles() {
+	protected void generateTiles() {
 		for (int x = this.x; x < this.x + w; x++) {
 			for (int y = this.y; y < this.y + h; y++) {
 				boolean water2 = Math.random() <= .5;
