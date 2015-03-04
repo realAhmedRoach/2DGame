@@ -13,15 +13,16 @@ public class Lake extends Entity {
 
 	public Lake(int x, int y, int w, int h) {
 		super(x, y);
+		this.h = h;
+		this.w = w;
 		generateTiles();
 	}
 
 	private void generateTiles() {
-		for (int x = this.x; x < this.x + (w*32); x++) {
-			for (int y = this.y; y < this.y + (h*32); y++) {
+		for (int x = this.x; x < this.x + w; x++) {
+			for (int y = this.y; y < this.y + h; y++) {
 				boolean water2 = Math.random() <= .5;
 				Tile tile = water2 ? Tile.WATER2 : Tile.WATER1;
-				System.out.println("x="+x+",y="+y);
 				tiles.put(new Point(x*32,y*32), tile);
 			}
 		}
