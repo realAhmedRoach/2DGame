@@ -2,11 +2,9 @@ package tk.thetechnokid.game.entities;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
 
 import tk.thetechnokid.game.Game;
+import tk.thetechnokid.game.gfx.Tile;
 
 public class Bullet extends Entity {
 	private static BufferedImage image;
@@ -18,12 +16,7 @@ public class Bullet extends Entity {
 	private long startTime;
 
 	static {
-		try {
-			image = ImageIO.read(Game.class.getResource("/bullet.png"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
+		image = Tile.s.crop(3,1,32,32);
 	}
 
 	public Bullet(Creature parent, Creature target) {
