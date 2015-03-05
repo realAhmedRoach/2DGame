@@ -52,7 +52,7 @@ public class Tile extends Entity {
 	}
 
 	@Override public void render(Graphics g) {
-		g.drawImage(image, x, y, null);
+		g.drawImage(sprite, x, y, null);
 	}
 
 	public boolean isSolid() {
