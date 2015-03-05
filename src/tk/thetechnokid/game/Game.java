@@ -75,7 +75,7 @@ public class Game extends JFrame implements Runnable {
 	@Override
 	public void run() {
 		long lastTime = System.nanoTime();
-		final double ns = 1000000000.0 / 60.0;
+		final double ns = 1000000000.0 / 150.0;
 		double delta = 0;
 		init();
 		while (running) {

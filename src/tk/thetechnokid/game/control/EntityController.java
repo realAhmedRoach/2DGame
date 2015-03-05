@@ -54,20 +54,20 @@ public class EntityController {
 			if (e.destroyed) {
 				removeEntity(e);
 			}
+			e.tick();
 		} for (Bullet b : bullets) {
 			if (b.destroyed) {
 				bullets.remove(b);
 			}
+			b.tick();
 		}
 	}
 
 	public static void render(Graphics g) {
 		for (Entity entity : entities) {
-			entity.tick();
 			entity.render(g);
 		}
 		for (Bullet b: bullets) {
-			b.tick();
 			b.render(g);
 		}
 	}
