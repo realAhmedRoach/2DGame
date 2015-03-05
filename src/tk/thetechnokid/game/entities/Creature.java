@@ -22,6 +22,10 @@ public abstract class Creature extends Entity {
 		health--;
 	}
 
+	public void wound(int delta) {
+		health-=delta;
+	}
+
 	@Override
 	public void tick() {
 		checkHealth();
