@@ -2,8 +2,6 @@ package tk.thetechnokid.game.entities.mapobjects;
 
 import java.awt.Point;
 
-import tk.thetechnokid.game.control.EntityController;
-import tk.thetechnokid.game.entities.Player;
 import tk.thetechnokid.game.gfx.Tile;
 
 public class Lake extends MapObject {
@@ -24,10 +22,5 @@ public class Lake extends MapObject {
 
 	@Override
 	public void tick() {
-		if(EntityController.user.bounds().intersects(bounds())) {
-			Player.SPEED = 1;
-		} else {
-			Player.SPEED = 4;
-		}
 	}
 }
