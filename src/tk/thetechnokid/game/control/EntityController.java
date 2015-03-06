@@ -8,14 +8,12 @@ import tk.thetechnokid.game.entities.*;
 public class EntityController {
 	public static CopyOnWriteArrayList<Entity> entities;
 	public static CopyOnWriteArrayList<Enemy> enemies;
-	public static CopyOnWriteArrayList<Wall> walls;
 	public static CopyOnWriteArrayList<Bullet> bullets;
 
 	public static Player user;
 	static {
 		entities = new CopyOnWriteArrayList<>();
 		enemies = new CopyOnWriteArrayList<>();
-		walls = new CopyOnWriteArrayList<>();
 		bullets = new CopyOnWriteArrayList<>();
 	}
 
@@ -29,11 +27,6 @@ public class EntityController {
 		addEntity(enemy);
 	}
 
-	public static void addWall(Wall w) {
-		walls.add(w);
-		addEntity(w);
-	}
-
 	public static void addEntity(Entity e) {
 		entities.add(e);
 	}
@@ -43,9 +36,6 @@ public class EntityController {
 		if (e instanceof Enemy) {
 			Enemy en = (Enemy) e;
 			enemies.remove(en);
-		} else if (e instanceof Wall) {
-			Wall w = (Wall) e;
-			walls.remove(w);
 		}
 	}
 
