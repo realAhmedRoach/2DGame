@@ -23,6 +23,7 @@ public class GameState extends State {
 	@Override
 	public void tick() {
 		EntityController.tick();
+		Map.tick();
 		if(EntityController.enemies.isEmpty()) {
 			LevelGenerator.generateRandomLevel();
 			Game.LEVEL++;

@@ -8,7 +8,7 @@ import tk.thetechnokid.game.gfx.Tile;
 
 public class Player extends Creature {
 
-	private static final int SPEED = 4;
+	public static int SPEED = 4;
 	private static BufferedImage image;
 	private boolean shot;
 

@@ -1,7 +1,6 @@
 package tk.thetechnokid.game.entities.mapobjects;
 
-import java.awt.Graphics;
-import java.awt.Point;
+import java.awt.*;
 import java.util.HashMap;
 
 import tk.thetechnokid.game.entities.Entity;
@@ -25,6 +24,11 @@ public abstract class MapObject extends Entity {
 			Tile t = tiles.get(p);
 			g.drawImage(t.getImage(), p.x, p.y, null);
 		}
+	}
+
+	@Override
+	public Rectangle bounds() {
+		return new Rectangle(x,y,w*32,h*32);
 	}
 
 	protected abstract void generateTiles();

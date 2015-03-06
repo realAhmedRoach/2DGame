@@ -39,6 +39,12 @@ public class Map {
 		}
 	}
 
+	public static void tick() {
+		for (Point p : objects.keySet()) {
+			objects.get(p).tick();
+		}
+	}
+
 	public static void render(Graphics g) {
 		for (Point p : objects.keySet()) {
 			objects.get(p).render(g);
