@@ -1,7 +1,5 @@
 package tk.thetechnokid.game.entities;
 
-import java.awt.Graphics;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 import tk.thetechnokid.game.control.EntityController;
@@ -10,23 +8,14 @@ import tk.thetechnokid.game.gfx.Tile;
 public class Enemy extends Creature {
 
 	private static final int SPEED = 3;
-	private static BufferedImage enemImg;
-	
+
 	boolean diffX;
 	boolean diffY;
-	
+
 	public ArrayList<Bullet> bullets = new ArrayList<>();
 
-	static {
-		enemImg = Tile.s.crop(1, 1, 32, 32);
-	}
-
 	public Enemy(int x, int y) {
-		super(x, y, enemImg);
-	}
-
-	public void render(Graphics g) {
-		super.render(g);
+		super(x, y, Tile.s.crop(1, 1, 32, 32));
 	}
 
 	@Override
@@ -50,7 +39,5 @@ public class Enemy extends Creature {
 		if (EntityController.user.y < y && !diffY) yMove = -SPEED;
 		if(diffX) xMove = 0;
 		if(diffY) yMove = 0;
-
-		if (rand <= 2) bullets.add(new Bullet(this, EntityController.user));
 	}
 }
