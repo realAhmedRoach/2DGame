@@ -5,7 +5,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import tk.thetechnokid.game.Game;
-import tk.thetechnokid.game.entities.*;
+import tk.thetechnokid.game.entities.Enemy;
+import tk.thetechnokid.game.entities.Player;
 
 public class LevelGenerator {
 	public static void generateRandomLevel() {

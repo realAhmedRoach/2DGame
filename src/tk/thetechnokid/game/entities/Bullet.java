@@ -1,13 +1,9 @@
 package tk.thetechnokid.game.entities;
 
-import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-
 import tk.thetechnokid.game.Game;
 import tk.thetechnokid.game.gfx.Tile;
 
 public class Bullet extends Entity {
-	private static BufferedImage image;
 	private static final int SPEED = 4;
 	private Creature target; // be french fries
 	public boolean drawn;
@@ -15,19 +11,11 @@ public class Bullet extends Entity {
 
 	private long startTime;
 
-	static {
-		image = Tile.s.crop(3,1,32,32);
-	}
-
 	public Bullet(Creature parent, Creature target) {
-		super(parent.x, parent.y, image);
+		super(parent.x, parent.y, Tile.s.crop(3,1,32,32));
 		this.target = target;
 		startTime = System.currentTimeMillis();
 		if(target.x == x && target.y == y) destroyed  = true;
-	}
-
-	public void render(Graphics g) {
-		super.render(g);
 	}
 
 	@Override
