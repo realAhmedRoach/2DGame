@@ -6,7 +6,7 @@ import tk.thetechnokid.game.control.EntityController;
 
 public class Enemy extends Creature {
 
-	private static final int SPEED = 3;
+	private static int SPEED = 3;
 
 	boolean diffX;
 	boolean diffY;
@@ -30,8 +30,13 @@ public class Enemy extends Creature {
 	}
 
 	public void checkPos() {
-		int rand = (int) (Math.random() * 6);
-		if (rand <= 2) return;
+		boolean rand = Math.random()<=.2;
+		if (rand) {
+			SPEED = 4;
+			return;
+		} else {
+			SPEED = 3;
+		}
 		if (EntityController.user.x > x && !diffX) xMove = SPEED;
 		if (EntityController.user.x < x && !diffX) xMove = -SPEED;
 		if (EntityController.user.y > y && !diffY) yMove = SPEED;
