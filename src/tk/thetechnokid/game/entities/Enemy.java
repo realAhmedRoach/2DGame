@@ -37,10 +37,10 @@ public class Enemy extends Creature {
 		} else {
 			SPEED = 3;
 		}
-		if (EntityController.user.x > x && !diffX) xMove = SPEED;
-		if (EntityController.user.x < x && !diffX) xMove = -SPEED;
-		if (EntityController.user.y > y && !diffY) yMove = SPEED;
-		if (EntityController.user.y < y && !diffY) yMove = -SPEED;
+		if (EntityController.user.x > x) xMove = SPEED;
+		if (EntityController.user.x < x) xMove = -SPEED;
+		if (EntityController.user.y > y) yMove = SPEED;
+		if (EntityController.user.y < y) yMove = -SPEED;
 		if(diffX) xMove = 0;
 		if(diffY) yMove = 0;
 	}
