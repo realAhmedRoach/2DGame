@@ -14,7 +14,6 @@ import tk.thetechnokid.game.entities.Entity;
 public class Tile extends Entity {
 
 	public static Spritesheet s;
-	public static final ArrayList<Tile> TILES = new ArrayList<Tile>();
 
 	static {
 		try {
@@ -40,15 +39,6 @@ public class Tile extends Entity {
 	public Tile(BufferedImage image, boolean solid) {
 		super(0, 26, image);
 		this.solid = solid;
-	}
-
-	public static Tile tileAt(Rectangle bounds) {
-		for (Tile t : TILES) {
-			if (t.bounds().intersects(bounds)) {
-				return t;
-			}
-		}
-		return VOID;
 	}
 
 	@Override public void render(Graphics g) {
