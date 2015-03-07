@@ -2,7 +2,7 @@ package tk.thetechnokid.game.entities.mapobjects;
 
 import java.awt.Point;
 
-import tk.thetechnokid.game.gfx.Tile;
+import tk.thetechnokid.game.entities.Tile;
 
 public class Lake extends MapObject {
 

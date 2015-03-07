@@ -3,7 +3,6 @@ package tk.thetechnokid.game.entities;
 import java.util.ArrayList;
 
 import tk.thetechnokid.game.control.EntityController;
-import tk.thetechnokid.game.gfx.Tile;
 
 public class Enemy extends Creature {
 

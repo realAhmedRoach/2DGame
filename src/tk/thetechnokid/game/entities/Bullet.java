@@ -1,7 +1,6 @@
 package tk.thetechnokid.game.entities;
 
 import tk.thetechnokid.game.Game;
-import tk.thetechnokid.game.gfx.Tile;
 
 public class Bullet extends Entity {
 	private static final int SPEED = 4;

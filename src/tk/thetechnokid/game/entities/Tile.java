@@ -1,4 +1,4 @@
-package tk.thetechnokid.game.gfx;
+package tk.thetechnokid.game.entities;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -7,7 +7,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import tk.thetechnokid.game.Game;
-import tk.thetechnokid.game.entities.Entity;
+import tk.thetechnokid.game.gfx.Spritesheet;
 
 public class Tile extends Entity {
 

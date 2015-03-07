@@ -5,7 +5,6 @@ import java.awt.image.BufferedImage;
 import tk.thetechnokid.game.Game;
 import tk.thetechnokid.game.control.EntityController;
 import tk.thetechnokid.game.control.InputHandler;
-import tk.thetechnokid.game.gfx.Tile;
 
 public class Player extends Creature {
 

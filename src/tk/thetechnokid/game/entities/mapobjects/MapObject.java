@@ -4,7 +4,7 @@ import java.awt.*;
 import java.util.HashMap;
 
 import tk.thetechnokid.game.entities.Entity;
-import tk.thetechnokid.game.gfx.Tile;
+import tk.thetechnokid.game.entities.Tile;
 
 public abstract class MapObject extends Entity {
 
