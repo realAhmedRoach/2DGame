@@ -8,14 +8,15 @@ public abstract class Powerup {
 	BufferedImage image;
 	String name;
 	public int x, y;
+	protected long startTime;
+	protected long maxTime;
 
-	public Powerup(BufferedImage image, int x, int y) {
-		this.image = image;
-		this.x = x;
-		this.y = y;
+	public Powerup() {
+		startTime = System.currentTimeMillis();
+		maxTime = 1000;
 	}
 
-	public void render(Graphics g) {
+	public void render(Graphics g, int x, int y) {
 		g.drawString(name, x+15, y);
 		g.drawImage(image, x, y+15, null);
 	}
