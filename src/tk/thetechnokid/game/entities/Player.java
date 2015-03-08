@@ -17,7 +17,7 @@ public class Player extends Creature {
 	private long lastShot;
 
 	static {
-		image = Tile.s.crop(0, 1, 32, 32);
+		image = Tile.s.crop(0, 1);
 	}
 
 	public Player() {

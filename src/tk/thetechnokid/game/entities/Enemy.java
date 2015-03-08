@@ -14,7 +14,7 @@ public class Enemy extends Creature {
 	public ArrayList<Bullet> bullets = new ArrayList<>();
 
 	public Enemy(int x, int y) {
-		super(x, y, Tile.s.crop(1, Math.random()<.5?1:2, 32, 32));
+		super(x, y, Tile.s.crop(1, Math.random()<.5?1:2));
 	}
 
 	@Override
