@@ -14,7 +14,7 @@ public class Enemy extends Creature {
 	public ArrayList<Bullet> bullets = new ArrayList<>();
 
 	public Enemy(int x, int y) {
-		super(x, y, Tile.s.crop(1, Math.random()<.5?1:2));
+		super(x, y, Tile.s.crop(1, 1));
 	}
 
 	@Override
@@ -39,8 +39,14 @@ public class Enemy extends Creature {
 		}
 		if (EntityController.user.x > x) xMove = SPEED;
 		if (EntityController.user.x < x) xMove = -SPEED;
-		if (EntityController.user.y > y) yMove = SPEED;
-		if (EntityController.user.y < y) yMove = -SPEED;
+		if (EntityController.user.y > y) {
+			sprite = Tile.s.crop(1, 1);
+			yMove = SPEED;
+		}
+		if (EntityController.user.y < y){
+			sprite = Tile.s.crop(1, 2);
+			yMove = -SPEED;
+		} 
 		if(diffX) xMove = 0;
 		if(diffY) yMove = 0;
 	}
