@@ -28,7 +28,7 @@ public abstract class MapObject extends Entity {
 
 	@Override
 	public Rectangle bounds() {
-		return new Rectangle(x,y,w*32,h*32);
+		return new Rectangle(x*32,y*32,w*32,h*32);
 	}
 
 	protected abstract void generateTiles();
