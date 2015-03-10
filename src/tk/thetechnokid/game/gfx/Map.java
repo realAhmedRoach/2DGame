@@ -10,7 +10,6 @@ import tk.thetechnokid.game.entities.mapobjects.*;
 
 public class Map {
 	private static final int TILESIZE = 32;
-	static boolean lake;
 	private static HashMap<Point, MapObject> objects = new HashMap<>();
 
 	public static void generateTiles() {
@@ -33,7 +32,6 @@ public class Map {
 						break;
 					}
 					objects.put(p, l);
-					lake = true;
 				}
 			}
 		}
