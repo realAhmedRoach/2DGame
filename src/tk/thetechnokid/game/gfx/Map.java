@@ -12,7 +12,6 @@ public class Map {
 	private static final int TILESIZE = 32;
 	static boolean lake;
 	private static HashMap<Point, MapObject> objects = new HashMap<>();
-	private static int lakes;
 
 	public static void generateTiles() {
 		Random r = new Random();
@@ -30,12 +29,7 @@ public class Map {
 						l = new Forest(x, y, 5, 5);
 						break;
 					case 2:
-						if(lakes>4){
-							l = new Grassland(x, y, 5, 5);
-							break;
-						}
 						l = new Lake(x, y, 5, 5);
-						lakes++;
 						break;
 					}
 					objects.put(p, l);

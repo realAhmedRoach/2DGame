@@ -6,7 +6,7 @@ import tk.thetechnokid.game.control.EntityController;
 
 public class Enemy extends Creature {
 
-	private static final int SPEED = 3;
+	private static final int SPEED = 1;
 
 	boolean diffX;
 	boolean diffY;
