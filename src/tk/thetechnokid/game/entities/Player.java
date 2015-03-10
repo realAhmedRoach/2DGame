@@ -1,12 +1,10 @@
 package tk.thetechnokid.game.entities;
 
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 
 import tk.thetechnokid.game.Game;
 import tk.thetechnokid.game.control.EntityController;
 import tk.thetechnokid.game.control.InputHandler;
-import tk.thetechnokid.game.powerups.Powerup;
 
 public class Player extends Creature {
 
@@ -17,8 +15,6 @@ public class Player extends Creature {
 	int enemyLoc = 0;
 
 	private long lastShot;
-
-	private ArrayList<Powerup> powerups = new ArrayList<>();
 
 	static {
 		image = Tile.s.crop(0, 1);
@@ -43,9 +39,6 @@ public class Player extends Creature {
 			try {
 				Bullet b = new Bullet(this, EntityController.enemies.get(enemyLoc++));
 				EntityController.bullets.add(b);
-				for (Powerup powerup : powerups) {
-					powerup.handle(true);
-				}
 			} catch (IndexOutOfBoundsException e) {
 				enemyLoc = 0;
 			}
