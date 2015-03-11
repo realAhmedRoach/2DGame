@@ -24,7 +24,7 @@ public class Lake extends MapObject {
 
 	@Override
 	public void tick() {
-		if(bounds().contains(EntityController.user.bounds())) {
+		if(bounds().intersects(EntityController.user.bounds())) {
 			Player.SPEED = 3;
 		}
 	}
