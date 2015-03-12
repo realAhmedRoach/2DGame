@@ -5,7 +5,7 @@ import java.awt.event.KeyEvent;
 
 public class InputHandler extends KeyAdapter {
 	private static final int MAX_KEY = 130;
-	private boolean[] keys = new boolean[MAX_KEY];
+	private static boolean[] keys = new boolean[MAX_KEY];
 	private static boolean up;
 	private static boolean down;
 	private static boolean right;
@@ -14,19 +14,19 @@ public class InputHandler extends KeyAdapter {
 	private static boolean esc;
 
 	private void update() {
-		up = keys[KeyEvent.VK_UP];
-		down = keys[KeyEvent.VK_DOWN];
-		right = keys[KeyEvent.VK_RIGHT];
-		left = keys[KeyEvent.VK_LEFT];
-		space = keys[KeyEvent.VK_SPACE];
-		esc = keys[KeyEvent.VK_ESCAPE];
+		up = getKeys()[KeyEvent.VK_UP];
+		down = getKeys()[KeyEvent.VK_DOWN];
+		right = getKeys()[KeyEvent.VK_RIGHT];
+		left = getKeys()[KeyEvent.VK_LEFT];
+		space = getKeys()[KeyEvent.VK_SPACE];
+		esc = getKeys()[KeyEvent.VK_ESCAPE];
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() > MAX_KEY)
 			return;
-		keys[e.getKeyCode()] = true;
+		getKeys()[e.getKeyCode()] = true;
 		update();
 	}
 
@@ -34,7 +34,7 @@ public class InputHandler extends KeyAdapter {
 	public void keyReleased(KeyEvent e) {
 		if (e.getKeyCode() > MAX_KEY)
 			return;
-		keys[e.getKeyCode()] = false;
+		getKeys()[e.getKeyCode()] = false;
 		update();
 	}
 
@@ -60,5 +60,9 @@ public class InputHandler extends KeyAdapter {
 
 	public static boolean isEsc() {
 		return esc;
+	}
+
+	public static boolean[] getKeys() {
+		return keys;
 	}
 }
