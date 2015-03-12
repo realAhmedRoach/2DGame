@@ -20,7 +20,7 @@ public class Game extends JFrame implements Runnable {
 	private Thread thread;
 
 	public static int KILLS;
-	public static int LEVEL;
+	public static int LEVEL = 1;
 
 	public Game() {
 		setResizable(false);
