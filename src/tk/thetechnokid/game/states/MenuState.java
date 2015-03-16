@@ -1,6 +1,6 @@
 package tk.thetechnokid.game.states;
 
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
@@ -12,6 +12,7 @@ import tk.thetechnokid.game.control.InputHandler;
 public class MenuState extends State {
 
 	private BufferedImage menuImage;
+	private String newStuff = "Added Bosses";
 
 	public MenuState() {
 		try {
@@ -24,6 +25,9 @@ public class MenuState extends State {
 	@Override
 	public void render(Graphics g) {
 		g.drawImage(menuImage, 0, 0,null);
+		g.setFont(new Font("Segoe Script", Font.PLAIN, 21));
+		g.setColor(Color.LIGHT_GRAY);
+		g.drawString("NEW: " + newStuff, 20, 45);
 	}
 
 	@Override
