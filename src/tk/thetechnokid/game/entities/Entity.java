@@ -21,8 +21,8 @@ public abstract class Entity {
 		this.x = x;
 		this.y = y;
 		this.sprite = image;
-		width = this.sprite.getWidth()*2;
-		height = this.sprite.getHeight()*2;
+		width = this.sprite.getWidth();
+		height = this.sprite.getHeight();
 	}
 
 	public abstract void tick();
