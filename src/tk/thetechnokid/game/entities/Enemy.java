@@ -10,11 +10,18 @@ public class Enemy extends Creature {
 
 	boolean diffX;
 	boolean diffY;
+	
+	public final boolean isBoss;
 
 	public ArrayList<Bullet> bullets = new ArrayList<>();
 
 	public Enemy(int x, int y) {
 		super(x, y, Tile.s.crop(1, 1));
+		isBoss = Math.random()<.3;
+		if(isBoss) {
+			width = 64;
+			height = 64;
+		}
 	}
 
 	@Override
