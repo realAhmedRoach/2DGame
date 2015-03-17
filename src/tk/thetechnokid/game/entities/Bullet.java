@@ -5,7 +5,6 @@ import tk.thetechnokid.game.Game;
 public class Bullet extends Entity {
 	private static final int SPEED = 4;
 	private Creature target; // be french fries
-	public boolean drawn;
 	private int xdir, ydir;
 
 	private long startTime;
@@ -33,7 +32,7 @@ public class Bullet extends Entity {
 		x += SPEED * xdir;
 		boolean atTarget = Math.abs(target.x - x) <= 2 && Math.abs(target.y - y) <= 2;
 		if (atTarget&&!destroyed) {
-			target.destroyed = true;
+			target.wound();
 			destroyed = true;
 			Game.KILLS++;
 		}
