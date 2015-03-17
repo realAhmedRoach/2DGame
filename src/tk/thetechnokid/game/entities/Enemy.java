@@ -10,7 +10,7 @@ public class Enemy extends Creature {
 
 	boolean diffX;
 	boolean diffY;
-	
+
 	public final boolean isBoss;
 
 	public ArrayList<Bullet> bullets = new ArrayList<>();
@@ -34,6 +34,15 @@ public class Enemy extends Creature {
 			EntityController.user.wound();
 
 		super.tick();
+	}
+
+	public void wound() {
+		if(isBoss) {
+			health /= 2;
+		} else {
+			health = 0;
+			destroyed = true;
+		}
 	}
 
 	public void checkPos() {
