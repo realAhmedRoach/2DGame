@@ -29,6 +29,7 @@ public class Player extends Creature {
 	public void tick() {
 		checkInputs();
 		checkShots();
+		Game.cam.centerOnEntity(this);
 		super.tick();
 	}
 
