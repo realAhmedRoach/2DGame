@@ -26,9 +26,9 @@ public class EndGameState extends State {
 	public void render(Graphics g) {
 		g.drawImage(image, 0, 0, null);
 		g.setFont(new Font("Viner Hand ITC", Font.PLAIN, 24));
-		g.setColor(new Color(65,30,24));
-		g.drawString("Kills: "+Game.KILLS, 300, 350);
-		g.drawString("Level: "+Game.LEVEL, 300, 400);
+		g.setColor(new Color(65, 30, 24));
+		g.drawString("Kills: " + Game.KILLS, 300, 350);
+		g.drawString("Level: " + Game.LEVEL, 300, 400);
 
 		g.setColor(Color.decode("0x2b520e"));
 		g.drawString("Press \"s\" to save stats", 250, 500);
@@ -36,22 +36,25 @@ public class EndGameState extends State {
 
 	@Override
 	public void tick() {
-		if(InputHandler.isSpace()) {
+		if (InputHandler.isSpace()) {
 			Game.LEVEL = 1;
 			Game.KILLS = 0;
 			State.setState(new GameState());
-		} if(InputHandler.isEsc()) System.exit(0);
-		if(InputHandler.getKeys()[KeyEvent.VK_S]) saveScores();
+		}
+		if (InputHandler.isEsc())
+			System.exit(0);
+		if (InputHandler.getKeys()[KeyEvent.VK_S])
+			saveScores();
 	}
 
 	private void saveScores() {
-		File saveFile = new File(System.getProperty("user.home")+"/Desktop/runner_save.txt");
+		File saveFile = new File(System.getProperty("user.home") + "/Desktop/runner_save.txt");
 
 		try {
 			BufferedWriter r = new BufferedWriter(new FileWriter(saveFile));
 
-			r.write("Level: "+Game.LEVEL+"\n");
-			r.write("Kills: "+Game.KILLS+"\n");
+			r.write("Level: " + Game.LEVEL + System.getProperty("line.seperator"));
+			r.write("Kills: " + Game.KILLS + System.getProperty("line.seperator"));
 
 			r.close();
 		} catch (IOException e) {
