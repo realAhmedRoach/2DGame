@@ -11,6 +11,8 @@ public class Bullet extends Entity {
 
 	public Bullet(Creature parent, Creature target) {
 		super(parent.x, parent.y, Tile.s.crop(3, 1));
+		width = 64;
+		height = 64;
 		this.target = target;
 		startTime = System.currentTimeMillis();
 		if(target.x == x && target.y == y) destroyed  = true;
