@@ -53,8 +53,8 @@ public class EndGameState extends State {
 		try {
 			BufferedWriter r = new BufferedWriter(new FileWriter(saveFile));
 
-			r.write("Level: " + Game.LEVEL + System.getProperty("line.seperator"));
-			r.write("Kills: " + Game.KILLS + System.getProperty("line.seperator"));
+			r.write("Level: " + Game.LEVEL + System.getProperty("line.separator"));
+			r.write("Kills: " + Game.KILLS + System.getProperty("line.separator"));
 
 			r.close();
 		} catch (IOException e) {
