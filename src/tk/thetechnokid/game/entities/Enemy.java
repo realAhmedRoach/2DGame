@@ -15,6 +15,8 @@ public class Enemy extends Creature {
 
 	public ArrayList<Bullet> bullets = new ArrayList<>();
 
+	private boolean shot;
+
 	public Enemy(int x, int y) {
 		super(x, y, Tile.s.crop(1, 1));
 		isBoss = Math.random() < .3;
@@ -62,5 +64,11 @@ public class Enemy extends Creature {
 			xMove = 0;
 		if (diffY)
 			yMove = 0;
+
+//		if(Math.random()<.2&&!shot) {
+//			Bullet b = new Bullet(this, EntityController.user);
+//			EntityController.bullets.add(b);
+//			shot = true;
+//		}
 	}
 }
