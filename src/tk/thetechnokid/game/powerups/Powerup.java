@@ -10,6 +10,7 @@ public abstract class Powerup {
 	public int x, y;
 	protected long startTime;
 	protected long maxTime;
+	protected boolean finished;
 
 	public Powerup() {
 		startTime = System.currentTimeMillis();
@@ -21,8 +22,13 @@ public abstract class Powerup {
 		g.drawImage(image, x, y+15, null);
 	}
 
-	public abstract void handle(boolean shooting);
+	public final void handle() {
+		if(finished) return;
+		happen();
+		if((startTime-System.currentTimeMillis())>=maxTime) destroy();
+	}
 	public abstract void destroy();
+	public abstract void happen();
 
 	public BufferedImage getImage() {
 		return image;
