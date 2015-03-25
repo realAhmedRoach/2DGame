@@ -5,6 +5,8 @@ import tk.thetechnokid.game.Game;
 public class Bullet extends Entity {
 	private static final int SPEED = 4;
 	private Creature target; // be french fries
+	private Creature parent;
+
 	private int xdir, ydir;
 
 	private long startTime;
@@ -14,6 +16,7 @@ public class Bullet extends Entity {
 		width = 64;
 		height = 64;
 		this.target = target;
+		this.parent = parent;
 		startTime = System.currentTimeMillis();
 		if(target.x == x && target.y == y) destroyed  = true;
 	}
@@ -36,7 +39,8 @@ public class Bullet extends Entity {
 		if (atTarget&&!destroyed) {
 			target.wound();
 			destroyed = true;
-			Game.KILLS++;
+			if(this.parent instanceof Player)
+				Game.KILLS++;
 		}
 	}
 
