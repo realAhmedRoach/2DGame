@@ -55,28 +55,28 @@ public class Player extends Creature {
 		yMove = 0;
 
 		if (InputHandler.isUp()) {
-			sprite = Tile.s.crop(0, 2, 32, 32);
+			sprite = Tile.s.crop(0, 2);
 			if (y <= 25)
 				y = 25;
 			else
 				yMove = -SPEED;
 		}
 		if (InputHandler.isDown()) {
-			sprite = Tile.s.crop(0, 1, 32, 32);
+			sprite = Tile.s.crop(0, 1);
 			if (y >= Game.HEIGHT - getImage().getHeight())
 				y = Game.HEIGHT - getImage().getHeight();
 			else
 				yMove = SPEED;
 		}
 		if (InputHandler.isRight()) {
-			sprite = Tile.s.crop(0, 3, 32, 32);
+			sprite = Tile.s.crop(0, 3);
 			if (x >= Game.WIDTH - getImage().getWidth())
 				x = Game.WIDTH - getImage().getWidth();
 			else
 				xMove = SPEED;
 		}
 		if (InputHandler.isLeft()) {
-			sprite = Tile.s.crop(0, 4, 32, 32);
+			sprite = Tile.s.crop(0, 4);
 			if (x <= 2)
 				x = 2;
 			else
