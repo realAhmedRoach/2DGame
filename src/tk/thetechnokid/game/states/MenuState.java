@@ -2,29 +2,25 @@ package tk.thetechnokid.game.states;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
 
 import tk.thetechnokid.game.Game;
 import tk.thetechnokid.game.control.InputHandler;
+import tk.thetechnokid.game.entities.Tile;
 
 public class MenuState extends State {
 
-	private BufferedImage menuImage;
 	private String newStuff = "Added Bosses";
 
+	private BufferedImage RUNNER;
+
 	public MenuState() {
-		try {
-			menuImage = ImageIO.read(Game.class.getResource("/menu.png"));
-		} catch(IOException e) {
-			e.printStackTrace();
-		}
+		RUNNER = Tile.s.crop(0, 6, 73, 26);
 	}
 
 	@Override
 	public void render(Graphics g) {
-		g.drawImage(menuImage, 0, 0,null);
+		g.drawImage(RUNNER, (Game.WIDTH / 2) - (RUNNER.getWidth()*3), 100, RUNNER.getWidth() * 3,
+				RUNNER.getHeight() * 3, null);
 		g.setFont(new Font("Segoe Script", Font.PLAIN, 21));
 		g.setColor(Color.LIGHT_GRAY);
 		g.drawString("NEW: " + newStuff, 20, 45);
@@ -32,7 +28,8 @@ public class MenuState extends State {
 
 	@Override
 	public void tick() {
-		if(InputHandler.isSpace()) State.setState(new GameState());
+		if (InputHandler.isSpace())
+			State.setState(new GameState());
 	}
 
 }

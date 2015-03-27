@@ -5,26 +5,23 @@ import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.*;
 
-import javax.imageio.ImageIO;
-
 import tk.thetechnokid.game.Game;
 import tk.thetechnokid.game.control.InputHandler;
+import tk.thetechnokid.game.entities.Tile;
 
 public class EndGameState extends State {
 
-	BufferedImage image;
+	private BufferedImage RUNNER;
 
 	public EndGameState() {
-		try {
-			image = ImageIO.read(Game.class.getResource("/endgame.png"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		RUNNER = Tile.s.crop(0, 6, 73, 26);
 	}
+
 
 	@Override
 	public void render(Graphics g) {
-		g.drawImage(image, 0, 0, null);
+		g.drawImage(RUNNER, (Game.WIDTH / 2) - (RUNNER.getWidth()*3), 100, RUNNER.getWidth() * 3,
+				RUNNER.getHeight() * 3, null);
 		g.setFont(new Font("Viner Hand ITC", Font.PLAIN, 24));
 		g.setColor(new Color(65, 30, 24));
 		g.drawString("Kills: " + Game.KILLS, 300, 350);

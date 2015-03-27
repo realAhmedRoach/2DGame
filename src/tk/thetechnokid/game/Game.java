@@ -6,7 +6,6 @@ import java.awt.image.BufferStrategy;
 import javax.swing.JFrame;
 
 import tk.thetechnokid.game.control.InputHandler;
-import tk.thetechnokid.game.gfx.Camera;
 import tk.thetechnokid.game.states.MenuState;
 import tk.thetechnokid.game.states.State;
 
@@ -20,7 +19,7 @@ public class Game extends JFrame implements Runnable {
 	private boolean running;
 	private Thread thread;
 
-	public static Camera cam;
+	//	public static Camera cam;
 
 	public static int KILLS;
 	public static int LEVEL = 1;
@@ -57,7 +56,6 @@ public class Game extends JFrame implements Runnable {
 	}
 
 	private void init() {
-		cam = new Camera(0, 0);
 		State.setState(new MenuState());
 	}
 
