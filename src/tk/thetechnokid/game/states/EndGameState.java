@@ -5,6 +5,8 @@ import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.*;
 
+import javax.imageio.ImageIO;
+
 import tk.thetechnokid.game.Game;
 import tk.thetechnokid.game.control.InputHandler;
 import tk.thetechnokid.game.entities.Tile;
@@ -12,15 +14,23 @@ import tk.thetechnokid.game.entities.Tile;
 public class EndGameState extends State {
 
 	private BufferedImage RUNNER;
+	private BufferedImage bg;
 
 	public EndGameState() {
-		RUNNER = Tile.s.crop(0, 6, 73, 26);
+		RUNNER = Tile.s.crop(0, 6, 73, 27);
+		try {
+			bg = ImageIO.read(Game.class.getResource("/bg.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
+
 
 
 	@Override
 	public void render(Graphics g) {
-		g.drawImage(RUNNER, (Game.WIDTH / 2) - (RUNNER.getWidth()*3), 100, RUNNER.getWidth() * 3,
+		g.drawImage(bg, 0, 0, Game.WIDTH, Game.HEIGHT, null);
+		g.drawImage(RUNNER, (Game.WIDTH / 2) - (RUNNER.getWidth()+30), 100, RUNNER.getWidth() * 3,
 				RUNNER.getHeight() * 3, null);
 		g.setFont(new Font("Viner Hand ITC", Font.PLAIN, 24));
 		g.setColor(new Color(65, 30, 24));
