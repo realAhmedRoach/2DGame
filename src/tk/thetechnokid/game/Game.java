@@ -33,6 +33,8 @@ public class Game extends JFrame implements Runnable {
 		setVisible(true);
 		requestFocus();
 		setLocationRelativeTo(null);
+		
+		init();
 	}
 
 	public void tick() {
@@ -79,7 +81,7 @@ public class Game extends JFrame implements Runnable {
 		long lastTime = System.nanoTime();
 		final double ns = 1000000000.0 / 150.0;
 		double delta = 0;
-		init();
+//		init();
 		while (running) {
 			long now = System.nanoTime();
 			delta += (now - lastTime) / ns;
