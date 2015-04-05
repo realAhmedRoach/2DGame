@@ -18,6 +18,7 @@ public class GameState extends State {
 	public void render(Graphics g) {
 		Map.render(g);
 		EntityController.render(g);
+		g.drawString("Health: " + EntityController.user.getHealth(), 20, 100);
 	}
 
 	@Override
