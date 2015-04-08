@@ -16,18 +16,17 @@ public class LevelGenerator {
 		ArrayList<Enemy> enemies = new ArrayList<>();
 
 		Random r = new Random();
-		for (int i = 0; i<r.nextInt(5)+Game.LEVEL; i++) {
+		for (int i = 0; i < r.nextInt(5) + Game.LEVEL; i++) {
 			int x = r.nextInt(Game.WIDTH);
 			int y = r.nextInt(Game.HEIGHT);
-			Enemy enemy = new Enemy(x,y);
+			Enemy enemy = new Enemy(x, y);
 			enemies.add(enemy);
 		}
 
 		EntityController.enemies.addAll(enemies);
 		EntityController.entities.addAll(enemies);
 
-		Player user = new Player();
-		EntityController.setUser(user);
+		EntityController.setUser((EntityController.user == null) ? new Player() : EntityController.user);
 	}
 
 	public static void generateFromFile(String path) {
@@ -39,15 +38,15 @@ public class LevelGenerator {
 		try {
 			BufferedReader r = new BufferedReader(new FileReader(new File(path)));
 			String line;
-			while((line = r.readLine())!= null) {
+			while ((line = r.readLine()) != null) {
 				String[] curr = line.split(" ");
 				if (curr[0].equals("e")) {
-					Enemy e = new Enemy(Integer.parseInt(curr[1]),Integer.parseInt(curr[2]));
+					Enemy e = new Enemy(Integer.parseInt(curr[1]), Integer.parseInt(curr[2]));
 					enemies.add(e);
 				}
 			}
 			r.close();
-		} catch(Exception e) {
+		} catch (Exception e) {
 			generateRandomLevel();
 			e.printStackTrace();
 		}
