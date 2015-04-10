@@ -26,7 +26,9 @@ public class LevelGenerator {
 		EntityController.enemies.addAll(enemies);
 		EntityController.entities.addAll(enemies);
 
-		EntityController.setUser((EntityController.user == null) ? new Player() : EntityController.user);
+		if(EntityController.user == null || EntityController.user.destroyed) {
+			EntityController.setUser(new Player());
+		}
 	}
 
 	public static void generateFromFile(String path) {
