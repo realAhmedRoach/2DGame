@@ -1,6 +1,5 @@
 package tk.thetechnokid.game.states;
 
-import java.awt.Font;
 import java.awt.Graphics;
 
 import tk.thetechnokid.game.Game;
@@ -17,7 +16,6 @@ public class GameState extends State {
 
 	@Override
 	public void render(Graphics g) {
-		g.setFont(new Font("Sans", Font.PLAIN, 21));
 		Map.render(g);
 		EntityController.render(g);
 		g.drawString("Health: " + EntityController.user.getHealth(), 20, 100);
