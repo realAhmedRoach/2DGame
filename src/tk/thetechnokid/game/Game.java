@@ -33,7 +33,7 @@ public class Game extends JFrame implements Runnable {
 		setVisible(true);
 		requestFocus();
 		setLocationRelativeTo(null);
-
+		
 		init();
 	}
 
