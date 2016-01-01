@@ -1,10 +1,9 @@
 package tk.thetechnokid.game.entities.mapobjects;
 
-import java.awt.Graphics;
-import java.awt.Point;
-import java.awt.Rectangle;
+import java.awt.*;
 import java.util.HashMap;
 
+import tk.thetechnokid.game.Game;
 import tk.thetechnokid.game.entities.Entity;
 import tk.thetechnokid.game.entities.Tile;
 
