@@ -36,7 +36,7 @@ public class MenuState extends State {
 		g.drawString("NEW: " + newStuff, 20, 45);
 		g.setColor(Color.DARK_GRAY);
 		String s = "Space to Start";
-		g.drawString(s, 300, Game.HEIGHT / 2);
+		g.drawString(s, Game.WIDTH / 2 - (s.length()*21), Game.HEIGHT / 2);
 	}
 
 	@Override
