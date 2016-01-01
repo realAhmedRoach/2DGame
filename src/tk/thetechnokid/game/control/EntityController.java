@@ -15,8 +15,6 @@ public class EntityController {
 		entities = new CopyOnWriteArrayList<>();
 		enemies = new CopyOnWriteArrayList<>();
 		bullets = new CopyOnWriteArrayList<>();
-
-		setUser(new Player());
 	}
 
 	public static void setUser(Player u) {
@@ -47,8 +45,7 @@ public class EntityController {
 				removeEntity(e);
 			}
 			e.tick();
-		}
-		for (Bullet b : bullets) {
+		} for (Bullet b : bullets) {
 			if (b.destroyed) {
 				bullets.remove(b);
 			}
@@ -60,7 +57,7 @@ public class EntityController {
 		for (Entity entity : entities) {
 			entity.render(g);
 		}
-		for (Bullet b : bullets) {
+		for (Bullet b: bullets) {
 			b.render(g);
 		}
 	}
